@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "streakDays": 7,
+    "xp": 1840,
+    "badgesEarned": 6,
+    "weeklyGoalDone": 4,
+    "weeklyGoalTotal": 5,
+    "level": "Apprentice"
+  },
+
+  "activityGrid": {
+    "weeks": 5,
+    "daysPerWeek": 7,
+    "today": { "weekIndex": 4, "dayIndex": 2 },
+    "cells": [
+      { "week": 0, "day": 0, "level": 1 },
+      { "week": 0, "day": 1, "level": 0 },
+      { "week": 0, "day": 2, "level": 2 },
+      { "week": 0, "day": 3, "level": 1 },
+      { "week": 0, "day": 4, "level": 3 },
+      { "week": 0, "day": 5, "level": 2 },
+      { "week": 0, "day": 6, "level": 0 },
+
+      { "week": 1, "day": 0, "level": 2 },
+      { "week": 1, "day": 1, "level": 3 },
+      { "week": 1, "day": 2, "level": 1 },
+      { "week": 1, "day": 3, "level": 0 },
+      { "week": 1, "day": 4, "level": 3 },
+      { "week": 1, "day": 5, "level": 4 },
+      { "week": 1, "day": 6, "level": 1 },
+
+      { "week": 2, "day": 0, "level": 3 },
+      { "week": 2, "day": 1, "level": 2 },
+      { "week": 2, "day": 2, "level": 4 },
+      { "week": 2, "day": 3, "level": 2 },
+      { "week": 2, "day": 4, "level": 3 },
+      { "week": 2, "day": 5, "level": 0 },
+      { "week": 2, "day": 6, "level": 2 },
+
+      { "week": 3, "day": 0, "level": 4 },
+      { "week": 3, "day": 1, "level": 3 },
+      { "week": 3, "day": 2, "level": 2 },
+      { "week": 3, "day": 3, "level": 4 },
+      { "week": 3, "day": 4, "level": 1 },
+      { "week": 3, "day": 5, "level": 3 },
+      { "week": 3, "day": 6, "level": 2 },
+
+      { "week": 4, "day": 0, "level": 2 },
+      { "week": 4, "day": 1, "level": 4 },
+      { "week": 4, "day": 2, "level": "today" }
+    ]
+  },
+
+  "badges": [
+    {
+      "id": "quartz",
+      "name": "Quartz",
+      "mineral": "Crystal",
+      "tier": "Common",
+      "earned": true,
+      "earnedOn": "2026-06-12",
+      "description": "Finished your first lesson.",
+      "icon": "💎"
+    },
+    {
+      "id": "feldspar",
+      "name": "Feldspar",
+      "mineral": "Silicate",
+      "tier": "Common",
+      "earned": true,
+      "earnedOn": "2026-06-19",
+      "description": "Held a 7-day streak.",
+      "icon": "🪨"
+    },
+    {
+      "id": "olivine",
+      "name": "Olivine",
+      "mineral": "Silicate",
+      "tier": "Uncommon",
+      "earned": true,
+      "earnedOn": "2026-06-26",
+      "description": "Completed your first module.",
+      "icon": "🌿"
+    },
+    {
+      "id": "mica",
+      "name": "Mica",
+      "mineral": "Sheet silicate",
+      "tier": "Uncommon",
+      "earned": true,
+      "earnedOn": "2026-07-02",
+      "description": "Aced a practice set on the first try.",
+      "icon": "✨"
+    },
+    {
+      "id": "pyrite",
+      "name": "Pyrite",
+      "mineral": "Sulfide",
+      "tier": "Rare",
+      "earned": true,
+      "earnedOn": "2026-07-05",
+      "description": "Submitted your first capstone.",
+      "icon": "🏆"
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "mineral": "Native element",
+      "tier": "Mythic",
+      "earned": false,
+      "description": "Graduate the entire Core Pathway.",
+      "icon": "💠"
+    },
+    {
+      "id": "amethyst",
+      "name": "Amethyst",
+      "mineral": "Quartz variety",
+      "tier": "Uncommon",
+      "earned": false,
+      "description": "Maintain a 30-day streak.",
+      "icon": "🔮"
+    },
+    {
+      "id": "sapphire",
+      "name": "Sapphire",
+      "mineral": "Corundum",
+      "tier": "Rare",
+      "earned": false,
+      "description": "Complete a Mastery check on the first try.",
+      "icon": "🔷"
+    }
+  ],
+
+  "leaderboard": {
+    "scope": "Core Pathway · this week",
+    "you": { "rank": 3, "name": "Sara", "handle": "you", "xp": 1840, "isYou": true },
+    "rows": [
+      { "rank": 1, "name": "Bilal A.", "handle": "bilal-a", "xp": 2410, "isYou": false },
+      { "rank": 2, "name": "Hina S.", "handle": "hina-s", "xp": 2120, "isYou": false },
+      { "rank": 3, "name": "Sara (you)", "handle": "you", "xp": 1840, "isYou": true },
+      { "rank": 4, "name": "Ali R.", "handle": "ali-r", "xp": 1655, "isYou": false },
+      { "rank": 5, "name": "Mehak I.", "handle": "mehak-i", "xp": 1490, "isYou": false },
+      { "rank": 6, "name": "Omar K.", "handle": "omar-k", "xp": 1320, "isYou": false },
+      { "rank": 7, "name": "Zara N.", "handle": "zara-n", "xp": 1180, "isYou": false },
+      { "rank": 8, "name": "Hassan T.", "handle": "hassan-t", "xp": 990, "isYou": false }
+    ]
+  },
+
+  "certificates": {
+    "rock-cycle": {
+      "courseId": "rock-cycle",
+      "courseTitle": "The Rock Cycle — Geology",
+      "badge": "National Talent Development Initiative",
+      "issuedOn": "12 May 2026",
+      "issuedTo": "Sara Mehmood",
+      "signatory": { "name": "Dr. Rahim Baloch", "role": "Programme Director" },
+      "id": "NTDI-RC-2026-0142",
+      "nextCourse": { "courseId": "geophysics-intro", "title": "Intro to Geophysics" }
+    },
+    "geophysics-intro": {
+      "courseId": "geophysics-intro",
+      "courseTitle": "Introduction to Geophysics",
+      "badge": "National Talent Development Initiative",
+      "issuedOn": "28 May 2026",
+      "issuedTo": "Sara Mehmood",
+      "signatory": { "name": "Dr. Sana Iqbal", "role": "Programme Director" },
+      "id": "NTDI-GP-2026-0218",
+      "nextCourse": { "courseId": "materials", "title": "Materials — Metallurgy" }
+    },
+    "materials": {
+      "courseId": "materials",
+      "courseTitle": "Materials — Metallurgy",
+      "badge": "National Talent Development Initiative",
+      "issuedOn": "16 Jun 2026",
+      "issuedTo": "Sara Mehmood",
+      "signatory": { "name": "Dr. Imran Qureshi", "role": "Programme Director" },
+      "id": "NTDI-MT-2026-0301",
+      "nextCourse": null
+    }
+  },
+
+  "graduate": {
+    "headline": "Core Pathway graduated!",
+    "subtitle": "You've earned this. The specialist tracks are open now.",
+    "primaryCta": { "label": "Choose a specialty", "href": "/tracks" },
+    "confettiPalette": ["#34c277", "#56cf91", "#f5d35a", "#f4a8a0", "#d8e3f4"]
+  }
+}

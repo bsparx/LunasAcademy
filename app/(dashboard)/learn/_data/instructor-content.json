@@ -1,0 +1,145 @@
+{
+  "courses": {
+    "rock-cycle": {
+      "id": "rock-cycle",
+      "title": "The Rock Cycle — Geology",
+      "pathway": "Core Pathway",
+      "status": "draft",
+      "duration": "4h",
+      "lessonCount": 8,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Module 1 · Minerals & crystals",
+          "blocks": [
+            { "id": "b1", "type": "video", "title": "Intro to the rock cycle", "durationMin": 6, "required": true },
+            { "id": "b2", "type": "reading", "title": "Crystal chemistry", "durationMin": 4 },
+            { "id": "b3", "type": "mastery", "title": "Mastery check · 6 questions", "questionCount": 6, "required": true }
+          ]
+        },
+        {
+          "id": "m2",
+          "title": "Module 2 · Igneous & sedimentary",
+          "blocks": [
+            { "id": "b4", "type": "video", "title": "Crystallization explainer", "durationMin": 7, "required": true }
+          ]
+        }
+      ],
+      "analytics": {
+        "enrolled": 1240,
+        "completion": 0.78,
+        "rating": 4.8,
+        "ratingCount": 312,
+        "funnel": [
+          { "lesson": 1, "completion": 1.00 },
+          { "lesson": 2, "completion": 0.94 },
+          { "lesson": 3, "completion": 0.87 },
+          { "lesson": 4, "completion": 0.81 },
+          { "lesson": 5, "completion": 0.76 },
+          { "lesson": 6, "completion": 0.54 },
+          { "lesson": 7, "completion": 0.50 },
+          { "lesson": 8, "completion": 0.48 }
+        ],
+        "needsAttention": [
+          { "kind": "questions", "count": 5, "label": "5 unanswered questions", "action": "Review" },
+          { "kind": "capstones", "count": 8, "label": "8 capstones awaiting review", "action": "Assign mentors" }
+        ],
+        "dropWarning": {
+          "lesson": 6,
+          "fromPct": 0.76,
+          "toPct": 0.54,
+          "deltaPct": 0.22,
+          "advice": "22% drop at Lesson 6's mastery check — consider adding more practice before it."
+        }
+      }
+    },
+    "geophysics-intro": {
+      "id": "geophysics-intro",
+      "title": "Introduction to Geophysics",
+      "pathway": "Core Pathway",
+      "status": "draft",
+      "duration": "5h",
+      "lessonCount": 8,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Module 1 · Seismic basics",
+          "blocks": [
+            { "id": "b1", "type": "video", "title": "Wave propagation", "durationMin": 7, "required": true }
+          ]
+        }
+      ],
+      "analytics": {
+        "enrolled": 980,
+        "completion": 0.71,
+        "rating": 4.7,
+        "ratingCount": 248,
+        "funnel": [
+          { "lesson": 1, "completion": 1.00 },
+          { "lesson": 2, "completion": 0.91 },
+          { "lesson": 3, "completion": 0.84 },
+          { "lesson": 4, "completion": 0.78 },
+          { "lesson": 5, "completion": 0.74 },
+          { "lesson": 6, "completion": 0.71 },
+          { "lesson": 7, "completion": 0.66 },
+          { "lesson": 8, "completion": 0.63 }
+        ],
+        "needsAttention": [
+          { "kind": "questions", "count": 2, "label": "2 unanswered questions", "action": "Review" },
+          { "kind": "capstones", "count": 3, "label": "3 capstones awaiting review", "action": "Assign mentors" }
+        ],
+        "dropWarning": {
+          "lesson": 3,
+          "fromPct": 0.91,
+          "toPct": 0.84,
+          "deltaPct": 0.07,
+          "advice": "Mild 7% drop after Lesson 2's reading. Learners may need a quick check-in question to anchor."
+        }
+      }
+    },
+    "materials": {
+      "id": "materials",
+      "title": "Materials — Metallurgy",
+      "pathway": "Core Pathway",
+      "status": "draft",
+      "duration": "5h",
+      "lessonCount": 8,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Module 1 · Pyrometallurgy",
+          "blocks": [
+            { "id": "b1", "type": "video", "title": "Smelting fundamentals", "durationMin": 8, "required": true }
+          ]
+        }
+      ],
+      "analytics": {
+        "enrolled": 1560,
+        "completion": 0.82,
+        "rating": 4.9,
+        "ratingCount": 405,
+        "funnel": [
+          { "lesson": 1, "completion": 1.00 },
+          { "lesson": 2, "completion": 0.95 },
+          { "lesson": 3, "completion": 0.91 },
+          { "lesson": 4, "completion": 0.87 },
+          { "lesson": 5, "completion": 0.84 },
+          { "lesson": 6, "completion": 0.82 },
+          { "lesson": 7, "completion": 0.79 },
+          { "lesson": 8, "completion": 0.77 }
+        ],
+        "needsAttention": [
+          { "kind": "questions", "count": 1, "label": "1 unanswered question", "action": "Review" },
+          { "kind": "capstones", "count": 4, "label": "4 capstones awaiting review", "action": "Assign mentors" }
+        ],
+        "dropWarning": {
+          "lesson": 5,
+          "fromPct": 0.87,
+          "toPct": 0.84,
+          "deltaPct": 0.03,
+          "advice": "Healthy curve. No intervention needed."
+        }
+      }
+    }
+  }
+}

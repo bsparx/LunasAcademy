@@ -1,0 +1,169 @@
+{
+  "rock-cycle": {
+    "id": "rock-cycle",
+    "slug": "rock-cycle",
+    "pathway": "Core Pathway",
+    "title": "The Rock Cycle — Geology",
+    "subtitle": "Classification and formation of Earth's rocks — mineralogy, petrology, crystal chemistry, and the processes that drive rock classification.",
+    "rating": 4.8,
+    "ratingCount": 312,
+    "enrolled": 1240,
+    "language": "EN · اردو",
+    "price": 1500,
+    "duration": "4h",
+    "lessons": 8,
+    "level": "Beginner",
+    "software": [],
+    "modules": [
+      {
+        "id": "m1",
+        "slug": "m1",
+        "title": "Module 1 · Minerals & crystals",
+        "done": true,
+        "lessons": [
+          {
+            "id": "m1-intro",
+            "slug": "intro-to-the-rock-cycle",
+            "type": "video",
+            "title": "Intro to the rock cycle",
+            "meta": "6m",
+            "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8",
+            "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=5",
+            "transcript": [
+              { "time": 0, "text": "Welcome to Module 1. Today we'll explore how minerals form the building blocks of every rock on Earth." },
+              { "time": 18, "text": "A mineral is a naturally occurring, inorganic solid with a defined chemical composition and crystal structure." },
+              { "time": 52, "text": "We'll start with the seven crystal systems and how to identify them in hand specimen." },
+              { "time": 96, "text": "The most abundant minerals in the crust are silicates — quartz, feldspar, mica, and olivine." },
+              { "time": 142, "text": "Next, we'll look at how these minerals combine to form igneous, sedimentary, and metamorphic rocks." }
+            ]
+          },
+          { "id": "m1-crystal", "slug": "crystal-chemistry", "type": "reading", "title": "Crystal chemistry", "meta": "4m" },
+          { "id": "m1-practice", "slug": "practice-8q", "type": "practice", "title": "8 questions", "meta": "+30 XP" },
+          { "id": "m1-mastery", "slug": "mastery-check", "type": "mastery", "title": "Mastery check", "meta": "gate" }
+        ]
+      },
+      {
+        "id": "m2",
+        "slug": "m2",
+        "title": "Module 2 · Igneous & sedimentary",
+        "lessons": [
+          { "id": "m2-igneous", "slug": "igneous-processes", "type": "video", "title": "Igneous processes", "meta": "7m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=120" },
+          { "id": "m2-sed", "slug": "sedimentary-environments", "type": "video", "title": "Sedimentary environments", "meta": "6m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=240" },
+          { "id": "m2-field", "slug": "field-identification", "type": "reading", "title": "Field identification", "meta": "5m" }
+        ]
+      },
+      {
+        "id": "m3",
+        "slug": "m3",
+        "title": "Module 3 · Metamorphism",
+        "lessons": [
+          { "id": "m3-ptt", "slug": "pressure-temperature-time", "type": "video", "title": "Pressure, temperature, time", "meta": "8m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=360" },
+          { "id": "m3-facies", "slug": "metamorphic-facies", "type": "reading", "title": "Metamorphic facies", "meta": "6m" },
+          { "id": "m3-practice", "slug": "practice-5q", "type": "practice", "title": "5 questions", "meta": "+20 XP" }
+        ]
+      }
+    ],
+    "capstone": { "title": "Capstone project", "tag": "end of track" },
+    "includes": ["Video lectures", "Notes & quizzes", "Certificate", "EN / اردو"]
+  },
+  "geophysics-intro": {
+    "id": "geophysics-intro",
+    "slug": "geophysics-intro",
+    "pathway": "Core Pathway",
+    "title": "Introduction to Geophysics",
+    "subtitle": "Foundations of geophysical methods — seismic refraction, gravity surveys, magnetics, and how to read a geophysical map.",
+    "rating": 4.7,
+    "ratingCount": 248,
+    "enrolled": 980,
+    "language": "EN",
+    "price": 1500,
+    "duration": "5h",
+    "lessons": 8,
+    "level": "Beginner",
+    "software": ["QGIS"],
+    "modules": [
+      {
+        "id": "m1",
+        "slug": "m1",
+        "title": "Module 1 · Seismic basics",
+        "lessons": [
+          { "id": "m1-wave", "slug": "wave-propagation", "type": "video", "title": "Wave propagation", "meta": "7m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=60" },
+          { "id": "m1-refrac", "slug": "refraction-vs-reflection", "type": "reading", "title": "Refraction vs reflection", "meta": "5m" },
+          { "id": "m1-practice", "slug": "practice-6q", "type": "practice", "title": "6 questions", "meta": "+25 XP" }
+        ]
+      },
+      {
+        "id": "m2",
+        "slug": "m2",
+        "title": "Module 2 · Gravity & magnetics",
+        "lessons": [
+          { "id": "m2-grav", "slug": "gravity-anomalies", "type": "video", "title": "Gravity anomalies", "meta": "6m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=180" },
+          { "id": "m2-mag", "slug": "magnetic-surveys", "type": "video", "title": "Magnetic surveys", "meta": "6m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=300" },
+          { "id": "m2-maps", "slug": "interpreting-maps", "type": "reading", "title": "Interpreting maps", "meta": "4m" }
+        ]
+      },
+      {
+        "id": "m3",
+        "slug": "m3",
+        "title": "Module 3 · Field workflows",
+        "lessons": [
+          { "id": "m3-design", "slug": "survey-design", "type": "video", "title": "Survey design", "meta": "8m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=420" },
+          { "id": "m3-practice", "slug": "practice-8q", "type": "practice", "title": "8 questions", "meta": "+30 XP" },
+          { "id": "m3-mastery", "slug": "mastery-check", "type": "mastery", "title": "Mastery check", "meta": "gate" }
+        ]
+      }
+    ],
+    "capstone": { "title": "Capstone project", "tag": "end of track" },
+    "includes": ["Video lectures", "Notes & quizzes", "Certificate", "EN"]
+  },
+  "materials": {
+    "id": "materials",
+    "slug": "materials",
+    "pathway": "Core Pathway",
+    "title": "Materials — Metallurgy",
+    "subtitle": "How metals are extracted and refined — pyrometallurgy, hydrometallurgy, electrometallurgy, and the unit operations behind them.",
+    "rating": 4.9,
+    "ratingCount": 405,
+    "enrolled": 1560,
+    "language": "EN",
+    "price": 1500,
+    "duration": "5h",
+    "lessons": 8,
+    "level": "Intermediate",
+    "software": [],
+    "modules": [
+      {
+        "id": "m1",
+        "slug": "m1",
+        "title": "Module 1 · Pyrometallurgy",
+        "lessons": [
+          { "id": "m1-smelt", "slug": "smelting-fundamentals", "type": "video", "title": "Smelting fundamentals", "meta": "8m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=90" },
+          { "id": "m1-slag", "slug": "slag-chemistry", "type": "reading", "title": "Slag chemistry", "meta": "5m" },
+          { "id": "m1-practice", "slug": "practice-7q", "type": "practice", "title": "7 questions", "meta": "+25 XP" }
+        ]
+      },
+      {
+        "id": "m2",
+        "slug": "m2",
+        "title": "Module 2 · Hydrometallurgy",
+        "lessons": [
+          { "id": "m2-leach", "slug": "leaching-kinetics", "type": "video", "title": "Leaching kinetics", "meta": "7m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=210" },
+          { "id": "m2-sx", "slug": "solvent-extraction", "type": "video", "title": "Solvent extraction", "meta": "6m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=330" },
+          { "id": "m2-flow", "slug": "process-flowsheets", "type": "reading", "title": "Process flowsheets", "meta": "5m" }
+        ]
+      },
+      {
+        "id": "m3",
+        "slug": "m3",
+        "title": "Module 3 · Electrometallurgy",
+        "lessons": [
+          { "id": "m3-ew", "slug": "electrowinning", "type": "video", "title": "Electrowinning", "meta": "7m", "hlsPublicId": "https://stream.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM.m3u8", "posterPublicId": "https://image.mux.com/v69RSHhFelSm4701snP22dYz2jICy4E4FUyk02rW4gxRM/thumbnail.jpg?time=450" },
+          { "id": "m3-practice", "slug": "practice-6q", "type": "practice", "title": "6 questions", "meta": "+25 XP" },
+          { "id": "m3-mastery", "slug": "mastery-check", "type": "mastery", "title": "Mastery check", "meta": "gate" }
+        ]
+      }
+    ],
+    "capstone": { "title": "Capstone project", "tag": "end of track" },
+    "includes": ["Video lectures", "Notes & quizzes", "Certificate", "EN"]
+  }
+}

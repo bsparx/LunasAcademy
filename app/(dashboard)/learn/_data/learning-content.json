@@ -1,0 +1,293 @@
+{
+  "knowledgeChecks": {
+    "m1-intro": {
+      "triggerAt": 870,
+      "triggerLabel": "14:30",
+      "prompt": "Quick check — no pressure",
+      "question": "Which rocks form from cooling magma?",
+      "options": ["Igneous", "Sedimentary", "Metamorphic"],
+      "correctIndex": 0,
+      "explanation": "Correct! Igneous rocks crystallize as magma cools.",
+      "hints": [
+        "Think about what 'igneous' literally means in Latin.",
+        "One family forms from cooled liquid rock, one from squashed layers, one from squeezed-and-heated older rock."
+      ]
+    },
+    "m2-igneous": {
+      "triggerAt": 540,
+      "triggerLabel": "9:00",
+      "prompt": "Quick check",
+      "question": "Coarse-grained igneous rocks (like granite) form when magma cools:",
+      "options": ["Quickly at the surface", "Slowly deep underground", "In cold ocean water"],
+      "correctIndex": 1,
+      "explanation": "Correct! Slow cooling deep down gives crystals time to grow large.",
+      "hints": ["Big crystals need time. Where on Earth do they get the most time?"]
+    },
+    "m2-sed": {
+      "triggerAt": 420,
+      "triggerLabel": "7:00",
+      "prompt": "Quick check",
+      "question": "Which process turns loose sediment into solid sedimentary rock?",
+      "options": ["Lithification", "Metamorphism", "Crystallization"],
+      "correctIndex": 0,
+      "explanation": "Correct! Lithification is compaction + cementation.",
+      "hints": ["It's a two-step: squeeze, then glue."]
+    },
+    "m3-ptt": {
+      "triggerAt": 660,
+      "triggerLabel": "11:00",
+      "prompt": "Quick check",
+      "question": "A shale turned into slate has undergone:",
+      "options": ["Weathering", "Metamorphism", "Melting"],
+      "correctIndex": 1,
+      "explanation": "Correct! Heat + pressure without melting = metamorphism.",
+      "hints": ["It didn't melt, and it didn't break down — it changed form."]
+    },
+    "m1-wave": {
+      "triggerAt": 480,
+      "triggerLabel": "8:00",
+      "prompt": "Quick check",
+      "question": "P-waves and S-waves differ mainly in:",
+      "options": ["Speed and polarity of motion", "Color and wavelength", "Temperature"],
+      "correctIndex": 0,
+      "explanation": "Correct! P-waves are longitudinal and faster; S-waves are transverse and slower.",
+      "hints": ["One pushes, one shakes side-to-side."]
+    },
+    "m2-grav": {
+      "triggerAt": 420,
+      "triggerLabel": "7:00",
+      "prompt": "Quick check",
+      "question": "A gravity high at the surface most likely indicates:",
+      "options": ["Dense rock near the surface", "A buried cavity", "Pure water"],
+      "correctIndex": 0,
+      "explanation": "Correct! Denser subsurface rock = stronger pull = positive anomaly.",
+      "hints": ["More mass below = stronger pull above."]
+    },
+    "m2-mag": {
+      "triggerAt": 360,
+      "triggerLabel": "6:00",
+      "prompt": "Quick check",
+      "question": "Magnetic surveys are especially useful for mapping:",
+      "options": ["Igneous and metamorphic basement rocks", "Loose sand", "Atmospheric humidity"],
+      "correctIndex": 0,
+      "explanation": "Correct! Magnetite-bearing basement rocks give the strongest magnetic signal.",
+      "hints": ["Which rocks hold onto magnetic minerals best?"]
+    },
+    "m3-design": {
+      "triggerAt": 540,
+      "triggerLabel": "9:00",
+      "prompt": "Quick check",
+      "question": "The first step in any geophysical survey design is:",
+      "options": ["Define the geological question", "Buy the equipment", "Hire a pilot"],
+      "correctIndex": 0,
+      "explanation": "Correct! Method follows the question, not the other way around.",
+      "hints": ["The method is a tool, not the goal."]
+    },
+    "m1-smelt": {
+      "triggerAt": 600,
+      "triggerLabel": "10:00",
+      "prompt": "Quick check",
+      "question": "A flux in smelting is added mainly to:",
+      "options": ["Form a slag that traps impurities", "Cool the furnace", "Color the metal"],
+      "correctIndex": 0,
+      "explanation": "Correct! Flux + impurities = slag, which is skimmed off.",
+      "hints": ["You want a separate liquid layer to carry the waste away."]
+    },
+    "m2-leach": {
+      "triggerAt": 480,
+      "triggerLabel": "8:00",
+      "prompt": "Quick check",
+      "question": "Leaching kinetics are usually fastest when the ore is:",
+      "options": ["Finely ground", "In large boulders", "Frozen"],
+      "correctIndex": 0,
+      "explanation": "Correct! More surface area = faster reaction.",
+      "hints": ["Surface area is the key lever in heterogeneous reactions."]
+    },
+    "m2-sx": {
+      "triggerAt": 420,
+      "triggerLabel": "7:00",
+      "prompt": "Quick check",
+      "question": "Solvent extraction separates metals primarily based on:",
+      "options": ["Differential solubility in two immiscible liquids", "Magnetic susceptibility", "Boiling point"],
+      "correctIndex": 0,
+      "explanation": "Correct! Each metal prefers a different phase.",
+      "hints": ["It's literally 'this metal likes oil, that one likes water.'"]
+    },
+    "m3-ew": {
+      "triggerAt": 480,
+      "triggerLabel": "8:00",
+      "prompt": "Quick check",
+      "question": "In electrowinning, the target metal deposits on the:",
+      "options": ["Cathode", "Anode", "Insulator"],
+      "correctIndex": 0,
+      "explanation": "Correct! Positive ions gain electrons at the cathode.",
+      "hints": ["Cations go to the cathode."]
+    }
+  },
+
+  "practice": {
+    "m1-practice": {
+      "title": "Practice · 8 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "What defines a mineral?", "options": ["Solid, inorganic, defined chemistry, crystal structure", "Any rock", "Any natural material", "Only silicates"], "correctIndex": 0, "explanation": "A mineral must be a naturally occurring inorganic solid with a defined chemical composition and crystal structure." },
+        { "id": "p2", "kind": "mcq", "prompt": "Which is the most abundant mineral group in Earth's crust?", "options": ["Carbonates", "Sulfides", "Silicates", "Halides"], "correctIndex": 2, "explanation": "Silicates dominate the crust (quartz, feldspar, mica, olivine, etc.)." },
+        { "id": "p3", "kind": "mcq", "prompt": "The hardest mineral on the Mohs scale is:", "options": ["Quartz", "Diamond", "Topaz", "Corundum"], "correctIndex": 1, "explanation": "Diamond = 10, the top of the scale." },
+        { "id": "p4", "kind": "match", "prompt": "Match the mineral to its system.", "left": ["Quartz", "Halite", "Mica"], "right": ["Hexagonal", "Cubic", "Monoclinic"], "correct": { "Quartz": "Hexagonal", "Halite": "Cubic", "Mica": "Monoclinic" } },
+        { "id": "p5", "kind": "mcq", "prompt": "Which is NOT a silicate?", "options": ["Olivine", "Calcite", "Feldspar", "Mica"], "correctIndex": 1, "explanation": "Calcite is a carbonate." },
+        { "id": "p6", "kind": "mcq", "prompt": "Cleavage describes:", "options": ["How a mineral breaks along planes of weakness", "The color of its powder", "Its hardness", "Its density"], "correctIndex": 0, "explanation": "Cleavage is the tendency to split along smooth planar surfaces." },
+        { "id": "p7", "kind": "mcq", "prompt": "Streak is the color of a mineral's:", "options": ["Powdered form", "Crystal face", "Luster", "Cleavage"], "correctIndex": 0, "explanation": "Streak is observed by scraping the mineral across an unglazed plate." },
+        { "id": "p8", "kind": "mcq", "prompt": "Luster describes:", "options": ["How light reflects off a mineral", "Its weight", "Its hardness", "Its color"], "correctIndex": 0, "explanation": "Luster is the optical reflectance (metallic, vitreous, pearly, etc.)." }
+      ]
+    },
+    "m3-practice": {
+      "title": "Practice · 5 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "Metamorphism requires:", "options": ["Heat + pressure below the surface", "Surface weathering", "Cooling magma", "Dissolution in water"], "correctIndex": 0, "explanation": "Metamorphism is solid-state change driven by heat and pressure, without melting." },
+        { "id": "p2", "kind": "mcq", "prompt": "A foliated texture indicates:", "options": ["Aligned mineral grains from directed pressure", "Random crystals", "A glassy texture", "Fossils"], "correctIndex": 0, "explanation": "Foliation comes from preferred mineral alignment under directed stress." },
+        { "id": "p3", "kind": "mcq", "prompt": "Contact metamorphism is caused by:", "options": ["Magma heating nearby rock", "Plate collisions far away", "Surface erosion", "Glaciers"], "correctIndex": 0, "explanation": "Contact metamorphism happens in the aureole around an intrusion." },
+        { "id": "p4", "kind": "mcq", "prompt": "Slate is the metamorphic equivalent of:", "options": ["Shale", "Limestone", "Granite", "Basalt"], "correctIndex": 0, "explanation": "Slate forms from low-grade metamorphism of shale." },
+        { "id": "p5", "kind": "mcq", "prompt": "Higher metamorphic grade generally means:", "options": ["Higher temperature and pressure", "Cooler temperatures", "More fossils", "Looser crystals"], "correctIndex": 0, "explanation": "Grade reflects the intensity of T and P the rock experienced." }
+      ]
+    },
+    "m1-practice-geoph": {
+      "title": "Practice · 6 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "P-waves are:", "options": ["Longitudinal and fastest", "Transverse and slow", "Surface waves", "Audible only"], "correctIndex": 0, "explanation": "P-waves compress and stretch along travel direction." },
+        { "id": "p2", "kind": "mcq", "prompt": "S-waves cannot travel through:", "options": ["Liquids", "Solids", "Both", "Neither"], "correctIndex": 0, "explanation": "S-waves need shear strength, which fluids lack." },
+        { "id": "p3", "kind": "mcq", "prompt": "Refraction occurs when a wave:", "options": ["Changes speed crossing a boundary", "Stops at a boundary", "Is absorbed", "Has the same speed everywhere"], "correctIndex": 0, "explanation": "Speed change at an interface bends the wave." },
+        { "id": "p4", "kind": "mcq", "prompt": "A refraction survey best images:", "options": ["Subsurface velocity layers", "Topography only", "Atmospheric pressure", "Soil moisture only"], "correctIndex": 0, "explanation": "Refraction maps velocity contrasts in the shallow subsurface." },
+        { "id": "p5", "kind": "mcq", "prompt": "S-wave shadow zones helped prove:", "options": ["The outer core is liquid", "The crust is solid", "Earth is flat", "The mantle is iron"], "correctIndex": 0, "explanation": "S-waves can't pass through the liquid outer core." },
+        { "id": "p6", "kind": "mcq", "prompt": "Surface waves are usually:", "options": ["The most damaging in earthquakes", "The fastest", "Inaudible", "Purely transverse"], "correctIndex": 0, "explanation": "Surface waves cause the bulk of earthquake damage." }
+      ]
+    },
+    "m3-practice-geoph": {
+      "title": "Practice · 8 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "A gravity anomaly is a difference between:", "options": ["Observed and expected gravity", "Air and water pressure", "Magnetic and electric fields", "Two different years"], "correctIndex": 0, "explanation": "Anomalies are residuals after subtracting a model." },
+        { "id": "p2", "kind": "mcq", "prompt": "A positive magnetic anomaly usually means:", "options": ["Magnetite-rich rock near the surface", "A void", "Cooler rock", "Pure quartz"], "correctIndex": 0, "explanation": "Magnetite strongly raises the local field." },
+        { "id": "p3", "kind": "mcq", "prompt": "Survey line spacing is mainly chosen based on:", "options": ["Target size and depth", "Operator height", "Time of day", "Cloud cover"], "correctIndex": 0, "explanation": "Resolution requirements dictate line spacing." },
+        { "id": "p4", "kind": "mcq", "prompt": "GPS is used in geophysical surveys to:", "options": ["Record precise positions of measurements", "Measure gravity", "Measure magnetism", "Drill holes"], "correctIndex": 0, "explanation": "Position is metadata essential to all geophysical data." },
+        { "id": "p5", "kind": "mcq", "prompt": "A Bouguer correction accounts for:", "options": ["Elevation and mass between station and datum", "Magnetic declination", "Wind speed", "Tide height"], "correctIndex": 0, "explanation": "It removes the gravitational effect of rock between you and datum." },
+        { "id": "p6", "kind": "mcq", "prompt": "Magnetometers measure:", "options": ["Magnetic field strength", "Gravity", "Sound", "Temperature"], "correctIndex": 0, "explanation": "Total field or component magnetometers are the workhorses." },
+        { "id": "p7", "kind": "match", "prompt": "Match the method to what it maps best.", "left": ["Gravity", "Magnetics", "Seismic refraction"], "right": ["Density contrast", "Magnetic susceptibility", "Velocity layers"], "correct": { "Gravity": "Density contrast", "Magnetics": "Magnetic susceptibility", "Seismic refraction": "Velocity layers" } },
+        { "id": "p8", "kind": "mcq", "prompt": "Quality control in surveys means:", "options": ["Repeating stations and checking for drift", "Skipping bad data", "Working faster", "Hiding errors"], "correctIndex": 0, "explanation": "Repeat readings, base stations, and drift checks are standard QC." }
+      ]
+    },
+    "m1-practice-mat": {
+      "title": "Practice · 7 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "Pyrometallurgy uses:", "options": ["High temperatures", "Aqueous solutions", "Electric current only", "Mechanical crushing"], "correctIndex": 0, "explanation": "Pyro = fire, i.e. high-temperature processing." },
+        { "id": "p2", "kind": "mcq", "prompt": "A flux is added to:", "options": ["Form a slag with impurities", "Cool the metal", "Polish the metal", "Color the metal"], "correctIndex": 0, "explanation": "Flux + gangue = slag that floats and is tapped off." },
+        { "id": "p3", "kind": "mcq", "prompt": "Matte in copper smelting is:", "options": ["A molten sulfide phase rich in copper", "Pure copper metal", "Slag", "Dust"], "correctIndex": 0, "explanation": "Matte is an intermediate Cu-Fe sulfide melt." },
+        { "id": "p4", "kind": "mcq", "prompt": "Converters in smelting use:", "options": ["Air or oxygen to oxidize iron sulfide", "Vacuum", "Nitrogen only", "Magnetic fields"], "correctIndex": 0, "explanation": "Pearce-Smith and PS converters blow air/oxygen to remove Fe and S." },
+        { "id": "p5", "kind": "mcq", "prompt": "Roasting is a:", "options": ["Controlled oxidation step", "Reduction step", "Filtration step", "Crushing step"], "correctIndex": 0, "explanation": "Roasting oxidizes sulfides to oxides or sulfates." },
+        { "id": "p6", "kind": "mcq", "prompt": "Slag viscosity is tuned using:", "options": ["Lime/silica ratio and temperature", "Adding sugar", "Adding water", "Increasing pressure only"], "correctIndex": 0, "explanation": "Slag chemistry and temperature control viscosity." },
+        { "id": "p7", "kind": "mcq", "prompt": "Refractory lining in a furnace is chosen for:", "options": ["Chemical and thermal compatibility with the process", "Color", "Cost only", "Magnetism"], "correctIndex": 0, "explanation": "Linings must resist corrosion, erosion, and heat." }
+      ]
+    },
+    "m3-practice-mat": {
+      "title": "Practice · 6 questions",
+      "subtitle": "Unlimited retries · no grade",
+      "questions": [
+        { "id": "p1", "kind": "mcq", "prompt": "Electrowinning deposits metal by:", "options": ["Electrolysis from a leach solution", "Melting and casting", "Mechanical plating", "Sintering"], "correctIndex": 0, "explanation": "Metal ions plate onto the cathode from purified solution." },
+        { "id": "p2", "kind": "mcq", "prompt": "Electrorefining purifies metal using:", "options": ["An impure anode and a pure cathode", "Two identical anodes", "Two identical cathodes", "No electrolyte"], "correctIndex": 0, "explanation": "Impure metal dissolves and pure metal plates." },
+        { "id": "p3", "kind": "mcq", "prompt": "Anode slime contains:", "options": ["Noble metals like Au, Ag, Pt", "Iron only", "Water", "Slag"], "correctIndex": 0, "explanation": "Noble metals don't dissolve and collect as slime." },
+        { "id": "p4", "kind": "mcq", "prompt": "Current efficiency is:", "options": ["Actual metal deposited vs theoretical", "Voltage", "Power usage", "Solution color"], "correctIndex": 0, "explanation": "Real deposition vs Faraday's law prediction." },
+        { "id": "p5", "kind": "mcq", "prompt": "Cell voltage is driven by:", "options": ["Thermodynamic, kinetic, and ohmic terms", "Time of day", "Operator mood", "Atmospheric pressure"], "correctIndex": 0, "explanation": "All three contribute to the cell voltage." },
+        { "id": "p6", "kind": "mcq", "prompt": "A short circuit in a cell:", "options": ["Wastes energy and can damage hardware", "Improves efficiency", "Has no effect", "Improves purity"], "correctIndex": 0, "explanation": "Shorts bypass useful electrochemical work." }
+      ]
+    }
+  },
+
+  "mastery": {
+    "m1-mastery": {
+      "title": "Mastery check",
+      "passThreshold": 0.8,
+      "questions": [
+        { "id": "m1", "kind": "mcq", "prompt": "Match each rock family to its origin.", "options": ["Igneous — cooling magma", "Sedimentary — heat + pressure", "Metamorphic — compacted sediments"], "correctIndex": 0, "explanation": "Igneous forms from cooling magma. (Sedimentary and metamorphic pairings are swapped.)" },
+        { "id": "m2", "kind": "mcq", "prompt": "A coarse-grained granite most likely cooled:", "options": ["Slowly, deep underground", "Quickly, at the surface", "In cold ocean water"], "correctIndex": 0, "explanation": "Slow cooling → large crystals." },
+        { "id": "m3", "kind": "match", "prompt": "Match each mineral to its diagnostic property.", "left": ["Halite", "Magnetite", "Galena"], "right": ["Salty taste, cubic", "Strongly magnetic, black", "Very heavy, lead-gray"], "correct": { "Halite": "Salty taste, cubic", "Magnetite": "Strongly magnetic, black", "Galena": "Very heavy, lead-gray" } },
+        { "id": "m4", "kind": "mcq", "prompt": "Which is NOT a silicate mineral?", "options": ["Calcite", "Quartz", "Olivine", "Feldspar"], "correctIndex": 0, "explanation": "Calcite is a carbonate." },
+        { "id": "m5", "kind": "mcq", "prompt": "Cleavage in mica is described as:", "options": ["Perfect basal (one direction)", "Cubic (three directions at 90°)", "None"], "correctIndex": 0, "explanation": "Mica splits into thin flexible sheets." },
+        { "id": "m6", "kind": "mcq", "prompt": "The mineral with the highest Mohs hardness is:", "options": ["Diamond", "Topaz", "Quartz", "Apatite"], "correctIndex": 0, "explanation": "Diamond = 10 on the Mohs scale." }
+      ]
+    },
+    "m3-mastery-geoph": {
+      "title": "Mastery check",
+      "passThreshold": 0.8,
+      "questions": [
+        { "id": "m1", "kind": "mcq", "prompt": "S-waves cannot pass through:", "options": ["Liquids", "Solids", "Both equally", "Neither"], "correctIndex": 0, "explanation": "S-waves need shear strength, which fluids lack." },
+        { "id": "m2", "kind": "match", "prompt": "Match the method to the property it measures.", "left": ["Gravity", "Magnetics", "Seismic refraction"], "right": ["Density contrast", "Magnetic susceptibility", "P-wave velocity"], "correct": { "Gravity": "Density contrast", "Magnetics": "Magnetic susceptibility", "Seismic refraction": "P-wave velocity" } },
+        { "id": "m3", "kind": "mcq", "prompt": "A positive magnetic anomaly usually means:", "options": ["Magnetite-rich rock near the surface", "A void", "Cooler rock", "Pure quartz"], "correctIndex": 0, "explanation": "Magnetite strongly raises the local field." },
+        { "id": "m4", "kind": "mcq", "prompt": "Survey design starts with:", "options": ["Defining the geological question", "Buying equipment", "Hiring a pilot", "Picking line colors"], "correctIndex": 0, "explanation": "Method follows the question." },
+        { "id": "m5", "kind": "mcq", "prompt": "A Bouguer correction removes:", "options": ["The gravitational effect of rock above datum", "Magnetic declination", "Wind noise", "Tidal effects only"], "correctIndex": 0, "explanation": "It corrects for the rock between station and datum." }
+      ]
+    },
+    "m3-mastery-mat": {
+      "title": "Mastery check",
+      "passThreshold": 0.8,
+      "questions": [
+        { "id": "m1", "kind": "mcq", "prompt": "In electrowinning, the target metal plates on the:", "options": ["Cathode", "Anode", "Insulator"], "correctIndex": 0, "explanation": "Cations are reduced at the cathode." },
+        { "id": "m2", "kind": "mcq", "prompt": "Anode slime typically contains:", "options": ["Au, Ag, Pt", "Fe only", "Water", "Slag"], "correctIndex": 0, "explanation": "Noble metals don't dissolve." },
+        { "id": "m3", "kind": "mcq", "prompt": "A flux in smelting is added to:", "options": ["Form a slag with impurities", "Cool the metal", "Polish the metal", "Color the metal"], "correctIndex": 0, "explanation": "Flux + gangue = slag." },
+        { "id": "m4", "kind": "match", "prompt": "Match process to scale.", "left": ["Pyro", "Hydro", "Electro"], "right": ["High-T melt", "Aqueous leach", "Electrolytic cell"], "correct": { "Pyro": "High-T melt", "Hydro": "Aqueous leach", "Electro": "Electrolytic cell" } },
+        { "id": "m5", "kind": "mcq", "prompt": "Current efficiency compares:", "options": ["Actual deposition vs theoretical (Faraday)", "Voltage vs current", "Power vs time", "Mass vs volume"], "correctIndex": 0, "explanation": "Real metal vs Faraday prediction." }
+      ]
+    }
+  },
+
+  "capstones": {
+    "rock-cycle": {
+      "badge": "GEOLOGY · CAPSTONE",
+      "title": "Build a mineral exploration strategy",
+      "description": "Analyze real geological datasets, build structural models, propose an exploration plan.",
+      "deliverables": ["Dataset analysis", "Structural model", "Exploration write-up"],
+      "rubric": [
+        "Clarity of structural interpretation",
+        "Use of geophysical evidence",
+        "Economic feasibility of the proposed plan"
+      ],
+      "reviewNote": "Reviewed by mentors + peers. You'll review 2 others' projects too (earns XP & reputation)."
+    },
+    "geophysics-intro": {
+      "badge": "GEOPHYSICS · CAPSTONE",
+      "title": "Design a multi-method survey",
+      "description": "Given a target and a budget, choose and justify a combination of geophysical methods, lay out the survey, and interpret a synthetic dataset.",
+      "deliverables": ["Method selection memo", "Survey layout map", "Interpretation report"],
+      "rubric": [
+        "Justification of method choice",
+        "Survey geometry and logistics",
+        "Quality of interpretation"
+      ],
+      "reviewNote": "Reviewed by mentors + peers. You'll review 2 others' projects too."
+    },
+    "materials": {
+      "badge": "METALLURGY · CAPSTONE",
+      "title": "Design a flowsheet for a low-grade ore",
+      "description": "Take a low-grade polymetallic ore and propose a complete extraction flowsheet — from comminution to refined metal.",
+      "deliverables": ["Flowsheet diagram", "Mass balance", "Capex/opex estimate"],
+      "rubric": [
+        "Technical coherence",
+        "Recovery and grade assumptions",
+        "Sustainability considerations"
+      ],
+      "reviewNote": "Reviewed by mentors + peers. You'll review 2 others' projects too."
+    }
+  },
+
+  "reviewCards": [
+    { "id": "r1", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "front": "What process turns sediment into rock?", "back": "Lithification — compaction and cementation of sediments under pressure." },
+    { "id": "r2", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "front": "Name the three rock families.", "back": "Igneous, sedimentary, metamorphic." },
+    { "id": "r3", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "front": "Which mineral group dominates the crust?", "back": "Silicates (quartz, feldspar, mica, olivine, etc.)." },
+    { "id": "r4", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "front": "Foliation in metamorphic rocks comes from…", "back": "Preferred alignment of mineral grains under directed pressure." },
+    { "id": "r5", "courseId": "geophysics-intro", "courseTitle": "Introduction to Geophysics", "front": "Why can't S-waves travel through the outer core?", "back": "S-waves need shear strength; liquids don't support shear." },
+    { "id": "r6", "courseId": "geophysics-intro", "courseTitle": "Introduction to Geophysics", "front": "A positive gravity anomaly most likely indicates…", "back": "Denser rock closer to the surface than the model assumed." },
+    { "id": "r7", "courseId": "materials", "courseTitle": "Materials — Metallurgy", "front": "Why is a flux added in smelting?", "back": "To combine with gangue minerals and form a separable slag." },
+    { "id": "r8", "courseId": "materials", "courseTitle": "Materials — Metallurgy", "front": "What collects in the anode slime of an electrorefining cell?", "back": "Noble metals (Au, Ag, Pt) that don't dissolve anodically." }
+  ]
+}

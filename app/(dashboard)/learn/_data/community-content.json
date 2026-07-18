@@ -1,0 +1,584 @@
+{
+  "resources": {
+    "rock-cycle": {
+      "courseId": "rock-cycle",
+      "courseTitle": "The Rock Cycle — Geology",
+      "resources": [
+        {
+          "id": "rc-r1",
+          "tier": "Common",
+          "type": "slides",
+          "title": "Lecture 1 — intro slides.pdf",
+          "size": "1.8 MB",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Lesson 1",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Minerals & crystals",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r2",
+          "tier": "Common",
+          "type": "reading",
+          "title": "Crystal chemistry — annotated reading",
+          "size": "PDF · 12 pages",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Lesson 2",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Minerals & crystals",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r3",
+          "tier": "Silver",
+          "type": "dataset",
+          "title": "Mohs hardness — reference samples",
+          "size": "240 KB",
+          "uploader": "Priya R. (Community Mentor)",
+          "context": "Reference set",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Minerals & crystals",
+          "sharedBy": "Community Mentor"
+        },
+        {
+          "id": "rc-r4",
+          "tier": "Gold",
+          "type": "slides",
+          "title": "Lecture 5 — slides.pdf",
+          "size": "2.4 MB",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Lesson 5",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Igneous & sedimentary",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r5",
+          "tier": "Common",
+          "type": "dataset",
+          "title": "rock_samples.csv",
+          "size": "880 KB",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Dataset for practice",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Igneous & sedimentary",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r6",
+          "tier": "Silver",
+          "type": "link",
+          "title": "Further reading: petrology basics",
+          "size": "External link",
+          "uploader": "Dr. Rahim Baloch",
+          "context": null,
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Igneous & sedimentary",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r7",
+          "tier": "Diamond",
+          "type": "image",
+          "title": "rock-cycle-cheatsheet.png",
+          "size": "1.1 MB · 1920×1080",
+          "uploader": "Bilal A. (Community Mentor)",
+          "context": "Printable, A2",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Igneous & sedimentary",
+          "sharedBy": "Community Mentor"
+        },
+        {
+          "id": "rc-r8",
+          "tier": "Gold",
+          "type": "slides",
+          "title": "Lecture 9 — metamorphic facies",
+          "size": "3.2 MB",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Lesson 9",
+          "moduleId": "m3",
+          "moduleTitle": "Module 3 · Metamorphism",
+          "sharedBy": null
+        },
+        {
+          "id": "rc-r9",
+          "tier": "Common",
+          "type": "pdf",
+          "title": "Field notebook — printable",
+          "size": "PDF · 6 pages",
+          "uploader": "Dr. Rahim Baloch",
+          "context": "Field trip",
+          "moduleId": "m3",
+          "moduleTitle": "Module 3 · Metamorphism",
+          "sharedBy": null
+        }
+      ]
+    },
+    "geophysics-intro": {
+      "courseId": "geophysics-intro",
+      "courseTitle": "Introduction to Geophysics",
+      "resources": [
+        {
+          "id": "gp-r1",
+          "tier": "Common",
+          "type": "slides",
+          "title": "Lecture 1 — seismic basics slides",
+          "size": "1.6 MB",
+          "uploader": "Dr. Sana Iqbal",
+          "context": "Lesson 1",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Seismic basics",
+          "sharedBy": null
+        },
+        {
+          "id": "gp-r2",
+          "tier": "Gold",
+          "type": "dataset",
+          "title": "Refraction survey — sample field data",
+          "size": "1.4 MB",
+          "uploader": "Dr. Sana Iqbal",
+          "context": "Lesson 3",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Seismic basics",
+          "sharedBy": null
+        },
+        {
+          "id": "gp-r3",
+          "tier": "Silver",
+          "type": "software",
+          "title": "QGIS starter project (.qgz)",
+          "size": "12 MB",
+          "uploader": "Hassan T. (Community Mentor)",
+          "context": "Lesson 5",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Gravity & magnetics",
+          "sharedBy": "Community Mentor"
+        },
+        {
+          "id": "gp-r4",
+          "tier": "Common",
+          "type": "slides",
+          "title": "Gravity anomalies — lecture slides",
+          "size": "2.0 MB",
+          "uploader": "Dr. Sana Iqbal",
+          "context": "Lesson 4",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Gravity & magnetics",
+          "sharedBy": null
+        },
+        {
+          "id": "gp-r5",
+          "tier": "Diamond",
+          "type": "image",
+          "title": "Magnetic survey — annotated map",
+          "size": "PNG · 2.4 MB",
+          "uploader": "Mehak I. (Community Mentor)",
+          "context": "Reference map",
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Gravity & magnetics",
+          "sharedBy": "Community Mentor"
+        },
+        {
+          "id": "gp-r6",
+          "tier": "Silver",
+          "type": "pdf",
+          "title": "Survey design checklist",
+          "size": "PDF · 2 pages",
+          "uploader": "Dr. Sana Iqbal",
+          "context": "Lesson 7",
+          "moduleId": "m3",
+          "moduleTitle": "Module 3 · Field workflows",
+          "sharedBy": null
+        }
+      ]
+    },
+    "materials": {
+      "courseId": "materials",
+      "courseTitle": "Materials — Metallurgy",
+      "resources": [
+        {
+          "id": "mt-r1",
+          "tier": "Common",
+          "type": "slides",
+          "title": "Pyrometallurgy — overview slides",
+          "size": "2.1 MB",
+          "uploader": "Dr. Imran Qureshi",
+          "context": "Lesson 1",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Pyrometallurgy",
+          "sharedBy": null
+        },
+        {
+          "id": "mt-r2",
+          "tier": "Gold",
+          "type": "dataset",
+          "title": "Slag chemistry — reference compositions",
+          "size": "640 KB",
+          "uploader": "Dr. Imran Qureshi",
+          "context": "Lesson 2",
+          "moduleId": "m1",
+          "moduleTitle": "Module 1 · Pyrometallurgy",
+          "sharedBy": null
+        },
+        {
+          "id": "mt-r3",
+          "tier": "Silver",
+          "type": "link",
+          "title": "Further reading: leaching kinetics",
+          "size": "External link",
+          "uploader": "Dr. Imran Qureshi",
+          "context": null,
+          "moduleId": "m2",
+          "moduleTitle": "Module 2 · Hydrometallurgy",
+          "sharedBy": null
+        },
+        {
+          "id": "mt-r4",
+          "tier": "Diamond",
+          "type": "image",
+          "title": "Electrowinning cell — annotated diagram",
+          "size": "PNG · 1.8 MB",
+          "uploader": "Omar K. (Community Mentor)",
+          "context": "Lesson 6",
+          "moduleId": "m3",
+          "moduleTitle": "Module 3 · Electrometallurgy",
+          "sharedBy": "Community Mentor"
+        },
+        {
+          "id": "mt-r5",
+          "tier": "Common",
+          "type": "pdf",
+          "title": "Capstone brief — flowsheet design",
+          "size": "PDF · 4 pages",
+          "uploader": "Dr. Imran Qureshi",
+          "context": "Capstone",
+          "moduleId": "m3",
+          "moduleTitle": "Module 3 · Electrometallurgy",
+          "sharedBy": null
+        }
+      ]
+    }
+  },
+
+  "forum": {
+    "rock-cycle": {
+      "courseId": "rock-cycle",
+      "courseTitle": "The Rock Cycle — Geology",
+      "threads": [
+        {
+          "id": "rc-t1",
+          "type": "Question",
+          "status": "solved",
+          "title": "How do I tell schist from gneiss?",
+          "authorName": "Sam",
+          "authorHandle": "sam",
+          "replies": 3,
+          "upvotes": 18,
+          "askedAgo": "2d ago",
+          "body": "I keep confusing them in hand specimen. Both are foliated, both have bands — what should I look for first?",
+          "answer": {
+            "authorName": "Priya R.",
+            "authorHandle": "priya-r",
+            "isMentor": true,
+            "body": "Look at the banding — gneiss has distinct light/dark bands (compositional), schist is more flaky and uniform. Here's a sample from the dataset: rock_samples.csv → rows 14-22.",
+            "upvotes": 24,
+            "answeredAgo": "1d ago"
+          }
+        },
+        {
+          "id": "rc-t2",
+          "type": "Software",
+          "status": "needs-answer",
+          "title": "Surpac install on Windows 11?",
+          "authorName": "Ali R.",
+          "authorHandle": "ali-r",
+          "replies": 1,
+          "upvotes": 4,
+          "askedAgo": "1h ago",
+          "body": "Stuck at licence check. Anyone got past this on 11?",
+          "answer": null
+        },
+        {
+          "id": "rc-t3",
+          "type": "StudyGroup",
+          "status": "open",
+          "title": "Quetta learners — weekly call?",
+          "authorName": "Hina S.",
+          "authorHandle": "hina-s",
+          "replies": 5,
+          "upvotes": 7,
+          "askedAgo": "2h ago",
+          "body": "Starting a Saturday call to walk through field notebook entries. Drop a 🙋 if you want the link.",
+          "answer": null
+        },
+        {
+          "id": "rc-t4",
+          "type": "Question",
+          "status": "open",
+          "title": "Best way to read a ternary diagram?",
+          "authorName": "Zara N.",
+          "authorHandle": "zara-n",
+          "replies": 2,
+          "upvotes": 11,
+          "askedAgo": "5h ago",
+          "body": "Always get the directions mixed up. Any mnemonic?",
+          "answer": {
+            "authorName": "Bilal A.",
+            "authorHandle": "bilal-a",
+            "isMentor": true,
+            "body": "Read along the side opposite the vertex of the component you want. So if you're plotting Quartz %, follow the line parallel to the opposite side — it bends toward the Quartz vertex.",
+            "upvotes": 9,
+            "answeredAgo": "3h ago"
+          }
+        },
+        {
+          "id": "rc-t5",
+          "type": "Resource",
+          "status": "open",
+          "title": "Cheatsheet image — anyone want a print version?",
+          "authorName": "Bilal A.",
+          "authorHandle": "bilal-a",
+          "replies": 4,
+          "upvotes": 6,
+          "askedAgo": "1d ago",
+          "body": "Posted the rock-cycle-cheatsheet.png under Module 2. If you want an A2 print version, react with 🖨 and I'll upload.",
+          "answer": null
+        },
+        {
+          "id": "rc-t6",
+          "type": "Question",
+          "status": "solved",
+          "title": "Does grain size always indicate cooling rate?",
+          "authorName": "Omar K.",
+          "authorHandle": "omar-k",
+          "replies": 6,
+          "upvotes": 14,
+          "askedAgo": "3d ago",
+          "body": "Coarse = slow, fine = fast — but is that always true?",
+          "answer": {
+            "authorName": "Priya R.",
+            "authorHandle": "priya-r",
+            "isMentor": true,
+            "body": "Mostly yes, but with caveats: very rapid undercooling (e.g. volcanic glass) gives no crystals at all. Grain size is a function of nucleation vs growth rate, not just cooling rate alone.",
+            "upvotes": 18,
+            "answeredAgo": "2d ago"
+          }
+        }
+      ]
+    },
+    "geophysics-intro": {
+      "courseId": "geophysics-intro",
+      "courseTitle": "Introduction to Geophysics",
+      "threads": [
+        {
+          "id": "gp-t1",
+          "type": "Question",
+          "status": "solved",
+          "title": "Why is the S-wave shadow zone bigger than P-wave's?",
+          "authorName": "Mehak I.",
+          "authorHandle": "mehak-i",
+          "replies": 4,
+          "upvotes": 22,
+          "askedAgo": "2d ago",
+          "body": null,
+          "answer": {
+            "authorName": "Hassan T.",
+            "authorHandle": "hassan-t",
+            "isMentor": true,
+            "body": "S-waves can't pass through the liquid outer core at all, so the shadow is total from ~104° to 180° angular distance. P-waves still refract, so they have a smaller zone (~103° to 140°).",
+            "upvotes": 27,
+            "answeredAgo": "1d ago"
+          }
+        },
+        {
+          "id": "gp-t2",
+          "type": "Software",
+          "status": "open",
+          "title": "QGIS project won't load on macOS",
+          "authorName": "Zara N.",
+          "authorHandle": "zara-n",
+          "replies": 2,
+          "upvotes": 3,
+          "askedAgo": "3h ago",
+          "body": null,
+          "answer": null
+        },
+        {
+          "id": "gp-t3",
+          "type": "Question",
+          "status": "needs-answer",
+          "title": "Bouguer correction — when do you skip it?",
+          "authorName": "Hina S.",
+          "authorHandle": "hina-s",
+          "replies": 0,
+          "upvotes": 1,
+          "askedAgo": "30m ago",
+          "body": null,
+          "answer": null
+        }
+      ]
+    },
+    "materials": {
+      "courseId": "materials",
+      "courseTitle": "Materials — Metallurgy",
+      "threads": [
+        {
+          "id": "mt-t1",
+          "type": "Question",
+          "status": "open",
+          "title": "Slag viscosity — flux ratio cheat?",
+          "authorName": "Ali R.",
+          "authorHandle": "ali-r",
+          "replies": 3,
+          "upvotes": 9,
+          "askedAgo": "6h ago",
+          "body": null,
+          "answer": null
+        },
+        {
+          "id": "mt-t2",
+          "type": "Question",
+          "status": "solved",
+          "title": "Why does current efficiency drop in EW?",
+          "authorName": "Sam",
+          "authorHandle": "sam",
+          "replies": 5,
+          "upvotes": 16,
+          "askedAgo": "1d ago",
+          "body": null,
+          "answer": {
+            "authorName": "Omar K.",
+            "authorHandle": "omar-k",
+            "isMentor": true,
+            "body": "Short circuits are the usual culprit — they bypass useful electrochemical work. Check for stray current paths and dendritic growth on the cathode.",
+            "upvotes": 21,
+            "answeredAgo": "12h ago"
+          }
+        },
+        {
+          "id": "mt-t3",
+          "type": "StudyGroup",
+          "status": "open",
+          "title": "Flowsheet review — anyone want to pair?",
+          "authorName": "Hina S.",
+          "authorHandle": "hina-s",
+          "replies": 2,
+          "upvotes": 4,
+          "askedAgo": "2d ago",
+          "body": null,
+          "answer": null
+        }
+      ]
+    }
+  },
+
+  "global": {
+    "user": {
+      "name": "Sara Mehmood",
+      "karma": 1740,
+      "weeklyKarma": 120,
+      "rank": "Community Mentor"
+    },
+    "sparkline": {
+      "days": 7,
+      "cells": [
+        { "day": 0, "level": 0 },
+        { "day": 1, "level": 1 },
+        { "day": 2, "level": 2 },
+        { "day": 3, "level": 1 },
+        { "day": 4, "level": 3 },
+        { "day": 5, "level": 0 },
+        { "day": 6, "level": "today" }
+      ]
+    },
+    "topCourses": [
+      { "courseId": "rock-cycle", "courseTitle": "The Rock Cycle — Geology", "rep": 1240, "weeklyRep": 85, "role": "Mentor" },
+      { "courseId": "geophysics-intro", "courseTitle": "Introduction to Geophysics", "rep": 320, "weeklyRep": 25, "role": "Helper" },
+      { "courseId": "materials", "courseTitle": "Materials — Metallurgy", "rep": 180, "weeklyRep": 10, "role": "Learner" }
+    ],
+    "unanswered": [
+      { "courseId": "rock-cycle", "threadId": "rc-t2", "title": "Surpac install on Windows 11?", "upvotes": 4, "askedAgo": "1h ago" },
+      { "courseId": "geophysics-intro", "threadId": "gp-t3", "title": "Bouguer correction — when do you skip it?", "upvotes": 1, "askedAgo": "30m ago" }
+    ],
+    "recentActivity": [
+      { "kind": "answer", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "text": "You answered \"How do I tell schist from gneiss?\"", "rep": 10, "ago": "1d ago" },
+      { "kind": "best", "courseId": "rock-cycle", "courseTitle": "The Rock Cycle", "text": "Your answer was marked best", "rep": 15, "ago": "1d ago" },
+      { "kind": "review", "courseId": "geophysics-intro", "courseTitle": "Geophysics", "text": "You reviewed a capstone", "rep": 25, "ago": "2d ago" },
+      { "kind": "answer", "courseId": "materials", "courseTitle": "Metallurgy", "text": "You answered \"Slag viscosity — flux ratio cheat?\"", "rep": 10, "ago": "3d ago" }
+    ]
+  },
+
+  "perCourse": {
+    "rock-cycle": {
+      "courseId": "rock-cycle",
+      "courseTitle": "The Rock Cycle — Geology",
+      "reputation": 1240,
+      "repToNext": 380,
+      "nextRole": "Moderator",
+      "unlocks": "flagging & pinning",
+      "roles": [
+        { "id": 1, "name": "Learner", "minRep": 0, "state": "done" },
+        { "id": 2, "name": "Helper", "minRep": 200, "state": "done" },
+        { "id": 3, "name": "Mentor", "minRep": 800, "state": "current" },
+        { "id": 4, "name": "Moderator", "minRep": 1620, "state": "locked" }
+      ],
+      "ways": [
+        { "id": "answer", "label": "Answer questions in Rock Cycle", "meta": "3 waiting", "rep": "+10 ea" },
+        { "id": "peer-review", "label": "Peer-review capstones in Rock Cycle", "meta": "1 assigned", "rep": "+25 ea" },
+        { "id": "best-answer", "label": "Get an answer marked \"best\"", "meta": null, "rep": "+15" }
+      ],
+      "recentActivity": [
+        { "text": "You answered \"How do I tell schist from gneiss?\"", "rep": 10, "ago": "1d ago" },
+        { "text": "Your answer was marked best", "rep": 15, "ago": "1d ago" },
+        { "text": "You answered \"Does grain size always indicate cooling rate?\"", "rep": 10, "ago": "2d ago" }
+      ],
+      "instructorNote": "Instructors set which roles can do what. Mentors lighten the teaching load; top contributors get invited as official TAs."
+    },
+    "geophysics-intro": {
+      "courseId": "geophysics-intro",
+      "courseTitle": "Introduction to Geophysics",
+      "reputation": 320,
+      "repToNext": 480,
+      "nextRole": "Mentor",
+      "unlocks": "answer threads with the Mentor badge",
+      "roles": [
+        { "id": 1, "name": "Learner", "minRep": 0, "state": "done" },
+        { "id": 2, "name": "Helper", "minRep": 200, "state": "current" },
+        { "id": 3, "name": "Mentor", "minRep": 800, "state": "locked" },
+        { "id": 4, "name": "Moderator", "minRep": 1500, "state": "locked" }
+      ],
+      "ways": [
+        { "id": "answer", "label": "Answer questions in Geophysics", "meta": "2 waiting", "rep": "+10 ea" },
+        { "id": "peer-review", "label": "Peer-review capstones in Geophysics", "meta": "1 assigned", "rep": "+25 ea" },
+        { "id": "best-answer", "label": "Get an answer marked \"best\"", "meta": null, "rep": "+15" }
+      ],
+      "recentActivity": [
+        { "text": "You reviewed a capstone", "rep": 25, "ago": "2d ago" },
+        { "text": "You answered \"S-wave shadow zone\"", "rep": 10, "ago": "4d ago" }
+      ],
+      "instructorNote": "Instructors set which roles can do what. Mentors lighten the teaching load; top contributors get invited as official TAs."
+    },
+    "materials": {
+      "courseId": "materials",
+      "courseTitle": "Materials — Metallurgy",
+      "reputation": 180,
+      "repToNext": 20,
+      "nextRole": "Helper",
+      "unlocks": "flag helpful answers",
+      "roles": [
+        { "id": 1, "name": "Learner", "minRep": 0, "state": "current" },
+        { "id": 2, "name": "Helper", "minRep": 200, "state": "locked" },
+        { "id": 3, "name": "Mentor", "minRep": 800, "state": "locked" },
+        { "id": 4, "name": "Moderator", "minRep": 1500, "state": "locked" }
+      ],
+      "ways": [
+        { "id": "answer", "label": "Answer questions in Metallurgy", "meta": "1 waiting", "rep": "+10 ea" },
+        { "id": "best-answer", "label": "Get an answer marked \"best\"", "meta": null, "rep": "+15" }
+      ],
+      "recentActivity": [
+        { "text": "You answered \"Slag viscosity — flux ratio cheat?\"", "rep": 10, "ago": "3d ago" }
+      ],
+      "instructorNote": "Instructors set which roles can do what. Mentors lighten the teaching load; top contributors get invited as official TAs."
+    }
+  }
+}
