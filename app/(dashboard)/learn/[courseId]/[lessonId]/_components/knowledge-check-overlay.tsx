@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, Lightbulb, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { KnowledgeCheck } from "@/app/learn/_data/learning-content";
+import type { KnowledgeCheck } from "@/app/(dashboard)/learn/_data/learning-content";
 
 type Phase = "answering" | "correct" | "wrong";
 

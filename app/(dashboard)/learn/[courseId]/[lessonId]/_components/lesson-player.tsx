@@ -13,7 +13,7 @@ import {
   DEMO_MUX_PLAYBACK_ID,
   DEMO_POSTER_URL,
 } from "@/lib/cloudinary";
-import type { KnowledgeCheck } from "@/app/learn/_data/learning-content";
+import type { KnowledgeCheck } from "@/app/(dashboard)/learn/_data/learning-content";
 import { KnowledgeCheckOverlay } from "./knowledge-check-overlay";
 
 type Props = {

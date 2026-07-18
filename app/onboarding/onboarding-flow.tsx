@@ -4,6 +4,7 @@ import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { saveOnboarding, skipOnboarding } from "./actions";
 
+type RoleChoice = "student" | "teacher";
 type Goal = "job-ready" | "specialize" | "explore" | "certificates";
 type Track =
   | "core"
@@ -20,6 +21,23 @@ type Props = {
   initialStreak: number | null;
   name: string;
 };
+
+const ROLES: {
+  id: RoleChoice;
+  title: string;
+  detail: string;
+}[] = [
+  {
+    id: "student",
+    title: "I'm here to learn",
+    detail: "Follow pathways, earn XP, and work toward certificates.",
+  },
+  {
+    id: "teacher",
+    title: "I'm here to teach",
+    detail: "Create courses, publish lessons, and guide learners.",
+  },
+];
 
 const GOALS: {
   id: Goal;
@@ -107,11 +125,26 @@ const STREAKS: { days: Streak; title: string; detail: string; tag: string }[] =
     { days: 7, title: "7 days / week", detail: "All in", tag: "All in" },
   ];
 
-const STEP_META = [
-  { subtitle: "this personalizes your home" },
-  { subtitle: "your starting point" },
-  { subtitle: "Luna will keep you honest" },
-] as const;
+type StepId = "role" | "goal" | "track" | "streak";
+
+const STEP_META: Record<StepId, { title: string; subtitle: string }> = {
+  role: {
+    title: "How will you use Luna's Academy?",
+    subtitle: "you can't change this later, choose carefully",
+  },
+  goal: {
+    title: "What brings you to Luna's Academy?",
+    subtitle: "this personalizes your home",
+  },
+  track: {
+    title: "Which path interests you most?",
+    subtitle: "your starting point",
+  },
+  streak: {
+    title: "How often can you learn?",
+    subtitle: "Luna will keep you honest",
+  },
+};
 
 function DiamondIcon({ color }: { color: string }) {
   return (
@@ -121,10 +154,10 @@ function DiamondIcon({ color }: { color: string }) {
   );
 }
 
-function StepIndicator({ step }: { step: number }) {
+function StepIndicator({ step, total }: { step: number; total: number }) {
   return (
     <div className="flex items-center gap-2">
-      {[0, 1, 2].map((i) => (
+      {Array.from({ length: total }, (_, i) => (
         <div
           key={i}
           className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
@@ -253,6 +286,7 @@ function OptionCard({
 
 export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name }: Props) {
   const [step, setStep] = useState(0);
+  const [role, setRole] = useState<RoleChoice | null>(null);
   const [goal, setGoal] = useState<Goal | null>(
     (initialGoal as Goal | null) ?? null
   );
@@ -264,20 +298,46 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
   );
   const [pending, startTransition] = useTransition();
 
+  // Teachers skip the learning-goal and track steps; the streak still applies
+  // since teachers keep streaks and XP for working through their own courses.
+  const steps: StepId[] =
+    role === "teacher"
+      ? ["role", "streak"]
+      : ["role", "goal", "track", "streak"];
+  const stepId = steps[step];
+  const isLast = step === steps.length - 1;
+
   const cta = useMemo(() => {
-    if (step === 0) return "Continue → pick a starting track";
-    if (step === 1) return "Continue → set your streak";
-    return "Start learning →";
-  }, [step]);
+    if (stepId === "role")
+      return role === "teacher"
+        ? "Continue → set your streak"
+        : "Continue → set your goal";
+    if (stepId === "goal") return "Continue → pick a starting track";
+    if (stepId === "track") return "Continue → set your streak";
+    return role === "teacher" ? "Start teaching →" : "Start learning →";
+  }, [stepId, role]);
 
   const canContinue = useMemo(() => {
-    if (step === 0) return !!goal;
-    if (step === 1) return !!track;
+    if (stepId === "role") return !!role;
+    if (stepId === "goal") return !!goal;
+    if (stepId === "track") return !!track;
     return !!streak;
-  }, [step, goal, track, streak]);
+  }, [stepId, role, goal, track, streak]);
 
   const bottomHint = useMemo(() => {
-    if (step === 0) {
+    if (stepId === "role") {
+      return (
+        <>
+          Everyone starts as a{" "}
+          <span className="font-semibold text-[var(--color-mint-600)]">
+            learner
+          </span>{" "}
+          by default. Teachers get an instructor studio to build and publish
+          courses — and can still learn from their own.
+        </>
+      );
+    }
+    if (stepId === "goal") {
       return (
         <>
           Next you&apos;ll start with the{" "}
@@ -289,7 +349,7 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
         </>
       );
     }
-    if (step === 1) {
+    if (stepId === "track") {
       return (
         <>
           You&apos;ll begin with the{" "}
@@ -307,15 +367,16 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
         in settings.
       </>
     );
-  }, [step]);
+  }, [stepId]);
 
   function handleNext() {
     if (!canContinue) return;
-    if (step < 2) {
+    if (!isLast) {
       setStep(step + 1);
       return;
     }
     const fd = new FormData();
+    if (role) fd.set("role", role);
     if (goal) fd.set("goal", goal);
     if (track) fd.set("startingTrack", track);
     if (streak) fd.set("streakGoal", String(streak));
@@ -374,26 +435,36 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 py-10 sm:py-16">
         <div className="w-full max-w-[520px]">
           <div className="rounded-3xl bg-white border border-[var(--color-ink-200)]/60 shadow-[0_2px_4px_rgba(15,40,30,0.04)] p-6 sm:p-8">
-            <StepIndicator step={step} />
+            <StepIndicator step={step} total={steps.length} />
 
             <div className="mt-7 flex items-start gap-4">
               <MascotSmall />
               <div className="flex-1 min-w-0">
                 <h1 className="text-[24px] sm:text-[28px] leading-[1.15] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)] text-balance">
-                  {step === 0
-                    ? "What brings you to Luna's Academy?"
-                    : step === 1
-                    ? "Which path interests you most?"
-                    : "How often can you learn?"}
+                  {STEP_META[stepId].title}
                 </h1>
                 <p className="mt-1.5 text-[13px] text-[var(--color-ink-500)]">
-                  Step {step + 1} of 3 · {STEP_META[step].subtitle}
+                  Step {step + 1} of {steps.length} · {STEP_META[stepId].subtitle}
                 </p>
               </div>
             </div>
 
             <div className="mt-7">
-              {step === 0 && (
+              {stepId === "role" && (
+                <div className="grid grid-cols-1 gap-3">
+                  {ROLES.map((r) => (
+                    <OptionCard
+                      key={r.id}
+                      selected={role === r.id}
+                      onSelect={() => setRole(r.id)}
+                      title={r.title}
+                      detail={r.detail}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {stepId === "goal" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {GOALS.map((g) => (
                     <OptionCard
@@ -407,7 +478,7 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
                 </div>
               )}
 
-              {step === 1 && (
+              {stepId === "track" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {TRACKS.map((t) => (
                     <OptionCard
@@ -429,7 +500,7 @@ export function OnboardingFlow({ initialGoal, initialTrack, initialStreak, name 
                 </div>
               )}
 
-              {step === 2 && (
+              {stepId === "streak" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {STREAKS.map((s) => (
                     <OptionCard

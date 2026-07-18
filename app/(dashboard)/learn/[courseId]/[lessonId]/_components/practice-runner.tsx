@@ -7,7 +7,7 @@ import { QuestionCard } from "./question-card";
 import type {
   PracticeQuestion,
   PracticeLesson as PracticeLessonData,
-} from "@/app/learn/_data/learning-content";
+} from "@/app/(dashboard)/learn/_data/learning-content";
 
 type Props = {
   data: PracticeLessonData;

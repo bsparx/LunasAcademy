@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
 import { prisma } from "@/app/utils/db";
-import { getGraduate } from "@/app/learn/_data/progress-content";
+import { getGraduate } from "@/app/(dashboard)/learn/_data/progress-content";
 import { GraduateClient } from "./_components/graduate-client";
 
 export default async function GraduatePage() {

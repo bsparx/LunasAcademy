@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Sidebar } from "@/app/dashboard/_components/sidebar";
 import { ReviewDashboard } from "./review-dashboard";
 import { ReviewSession } from "./review-session";
 import { useReviewStore } from "./use-review-store";
-import type { ReviewCard } from "@/app/learn/_data/learning-content";
+import type { ReviewCard } from "@/app/(dashboard)/learn/_data/learning-content";
 import type { StatefulCard } from "./types";
 
 type Props = {
@@ -31,24 +30,19 @@ export function ReviewApp({ cards }: Props) {
   }
 
   return (
-    <div className="flex min-h-screen bg-[var(--cream-50)]">
-      <Sidebar />
-      <div className="flex-1 min-w-0">
-        <div className="mx-auto max-w-5xl px-10 py-10">
-          {!hydrated ? (
-            <ReviewSkeleton />
-          ) : view === "dashboard" ? (
-            <ReviewDashboard
-              cards={stateful}
-              sessionStats={sessionStats}
-              onStart={startSession}
-              onReset={reset}
-            />
-          ) : (
-            <ReviewSession queue={queue} onRate={rate} onExit={endSession} />
-          )}
-        </div>
-      </div>
+    <div className="mx-auto max-w-5xl px-10 py-10">
+      {!hydrated ? (
+        <ReviewSkeleton />
+      ) : view === "dashboard" ? (
+        <ReviewDashboard
+          cards={stateful}
+          sessionStats={sessionStats}
+          onStart={startSession}
+          onReset={reset}
+        />
+      ) : (
+        <ReviewSession queue={queue} onRate={rate} onExit={endSession} />
+      )}
     </div>
   );
 }

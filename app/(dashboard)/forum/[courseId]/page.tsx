@@ -3,7 +3,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import {
   getForum,
   getCourseCommunity,
-} from "@/app/learn/_data/community-content";
+} from "@/app/(dashboard)/learn/_data/community-content";
 import { ForumClient } from "./_components/forum-client";
 
 export function generateStaticParams() {

@@ -1,6 +1,7 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { prisma } from "../utils/db";
+import { HardRedirect } from "./hard-redirect";
 
 export default async function ConnectPage() {
   const user = await currentUser();
@@ -33,9 +34,8 @@ export default async function ConnectPage() {
       clerkID: user.id,
       email,
       name,
-      role: "student",
     },
   });
 
-  redirect(isNewUser ? "/onboarding" : "/dashboard");
+  return <HardRedirect to={isNewUser ? "/onboarding" : "/dashboard"} />;
 }

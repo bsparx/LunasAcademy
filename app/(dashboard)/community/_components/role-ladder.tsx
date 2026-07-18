@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import {
   type CommunityRole,
   ladderProgress,
-} from "@/app/learn/_data/community-content";
+} from "@/app/(dashboard)/learn/_data/community-content";
 
 type Props = {
   roles: CommunityRole[];

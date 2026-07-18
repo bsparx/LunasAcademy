@@ -1,6 +1,6 @@
 // Shared types for the review feature.
 
-import type { ReviewCard as SeedReviewCard } from "@/app/learn/_data/learning-content";
+import type { ReviewCard as SeedReviewCard } from "@/app/(dashboard)/learn/_data/learning-content";
 
 export type ReviewRating = "hard" | "okay" | "easy";
 

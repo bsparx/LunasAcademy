@@ -7,7 +7,7 @@ import type {
   PracticeQuestion,
   McqQuestion,
   MatchQuestion,
-} from "@/app/learn/_data/learning-content";
+} from "@/app/(dashboard)/learn/_data/learning-content";
 
 type Status = "answering" | "checked";
 

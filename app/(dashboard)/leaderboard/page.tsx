@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
-import { getLeaderboard } from "@/app/learn/_data/progress-content";
+import { getLeaderboard } from "@/app/(dashboard)/learn/_data/progress-content";
 import { LeaderboardClient } from "./_components/leaderboard-client";
 
 export default async function LeaderboardPage() {

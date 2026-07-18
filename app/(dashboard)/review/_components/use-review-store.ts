@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { initialCardState, sm2Step, statusOf } from "./sm2";
 import type { CardStore, CardState, ReviewRating, StatefulCard, SessionStat } from "./types";
-import type { ReviewCard } from "@/app/learn/_data/learning-content";
+import type { ReviewCard } from "@/app/(dashboard)/learn/_data/learning-content";
 
 const STORE_KEY = "luna.review.store.v1";
 const SESSION_KEY = "luna.review.sessionStats.v1";

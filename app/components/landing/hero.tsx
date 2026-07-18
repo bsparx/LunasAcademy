@@ -1,4 +1,5 @@
-import { SignUpButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { Show, SignUpButton } from "@clerk/nextjs";
 import { ArrowRight } from "lucide-react";
 import { Mascot } from "../mascot";
 import { HeroScene } from "./hero-scene";
@@ -48,15 +49,26 @@ export function Hero() {
               className="hero-rise mt-9 flex flex-wrap items-center gap-3"
               style={{ animationDelay: "240ms" }}
             >
-              <SignUpButton mode="modal">
-                <button
-                  type="button"
-                  className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-5 py-3 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+              <Show when="signed-out">
+                <SignUpButton mode="modal">
+                  <button
+                    type="button"
+                    className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-5 py-3 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                  >
+                    Start learning free
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                </SignUpButton>
+              </Show>
+              <Show when="signed-in">
+                <Link
+                  href="/dashboard"
+                  className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-5 py-3 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  Start learning free
+                  Go to dashboard
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </button>
-              </SignUpButton>
+                </Link>
+              </Show>
               <a
                 href="#tracks"
                 className="inline-flex items-center rounded-md border border-white/20 bg-white/5 px-5 py-3 text-[15px] font-medium text-white hover:bg-white/10 hover:border-white/30 transition-all"

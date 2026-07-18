@@ -1,0 +1,427 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  TEACHER
+}
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum ResourceKind {
+  VIDEO
+  LECTURE
+  FILE
+}
+
+model User {
+  userID              Int                  @id @default(autoincrement())
+  clerkID             String               @unique
+  email               String               @unique
+  name                String?
+  role                Role                 @default(STUDENT)
+  goal                String?
+  headline            String?
+  bio                 String?
+  startingTrack       String?
+  streakGoal          Int?
+  streak              Int                  @default(0)
+  longestStreak       Int                  @default(0)
+  lastActiveDay       DateTime?            @db.Date
+  xp                  Int                  @default(0)
+  onboardingDone      Boolean              @default(false)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  progress            LessonProgress[]
+  taughtCourses       Course[]             @relation("TaughtCourses")
+  enrollments         Enrollment[]
+  resources           Resource[]           @relation("OwnedResources")
+  itemProgress        ItemProgress[]
+  checkProgress       CheckProgress[]
+  pendingUploads      PendingUpload[]      @relation("PendingUploads")
+  capstoneSubmissions CapstoneSubmission[]
+  dailyActivity       DailyActivity[]
+  courseReviews       CourseReview[]
+  coursePosts         CoursePost[]
+  postComments        PostComment[]
+  postVotes           PostVote[]
+  commentVotes        CommentVote[]
+
+  @@index([clerkID])
+}
+
+// One review per enrolled student per course; rating 1–5, optional comment.
+model CourseReview {
+  reviewID  Int      @id @default(autoincrement())
+  courseID  Int
+  userID    Int
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  course    Course   @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  user      User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+
+  @@unique([courseID, userID])
+  @@index([courseID])
+}
+
+// One row per user per (local) day with at least one first-time lecture
+// completion. Doing ≥1 lecture keeps the streak alive; re-watching an
+// already-completed lecture never counts.
+model DailyActivity {
+  activityID   Int      @id @default(autoincrement())
+  userID       Int
+  day          DateTime @db.Date
+  lecturesDone Int      @default(0)
+  user         User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+
+  @@unique([userID, day])
+  @@index([userID, day])
+}
+
+model Course {
+  courseID    Int            @id @default(autoincrement())
+  title       String
+  description String?
+  overview    String? // long-form markdown shown on the course Overview tab
+  pathway     String?
+  level       String?
+  status      CourseStatus   @default(DRAFT)
+  teacherID   Int
+  teacher     User           @relation("TaughtCourses", fields: [teacherID], references: [userID], onDelete: Cascade)
+  enrollments Enrollment[]
+  topics      Topic[]
+  capstone    Capstone?
+  reviews     CourseReview[]
+  resources   Resource[]
+  posts       CoursePost[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([teacherID])
+}
+
+model Resource {
+  resourceID   Int          @id @default(autoincrement())
+  ownerID      Int
+  owner        User         @relation("OwnedResources", fields: [ownerID], references: [userID], onDelete: Cascade)
+  // The library is scoped per course — other courses can't see or attach it.
+  courseID     Int
+  course       Course       @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  kind         ResourceKind
+  title        String
+  url          String
+  publicID     String
+  resourceType String
+  format       String?
+  bytes        Int?
+  duration     Float?
+  createdAt    DateTime     @default(now())
+  moduleItems  ModuleItem[]
+  checks       VideoCheck[]
+
+  @@index([ownerID])
+  @@index([courseID])
+}
+
+// Inline MCQ knowledge check that pauses a video at timeSec.
+model VideoCheck {
+  checkID        Int      @id @default(autoincrement())
+  resourceID     Int
+  resource       Resource @relation(fields: [resourceID], references: [resourceID], onDelete: Cascade)
+  timeSec        Int
+  question       String
+  options        String[]
+  correctIndices Int[]
+  imageURL       String?
+  imagePublicID  String?
+  createdAt      DateTime        @default(now())
+  progress       CheckProgress[]
+
+  @@index([resourceID])
+}
+
+// Coursera-style module exam. Lives on a ModuleItem (resource-less item),
+// so it orders alongside videos/lectures and dies with its item.
+model Exam {
+  examID    Int            @id @default(autoincrement())
+  itemID    Int            @unique
+  item      ModuleItem     @relation(fields: [itemID], references: [itemID], onDelete: Cascade)
+  questions ExamQuestion[]
+  createdAt DateTime       @default(now())
+}
+
+model ExamQuestion {
+  questionID     Int      @id @default(autoincrement())
+  examID         Int
+  exam           Exam     @relation(fields: [examID], references: [examID], onDelete: Cascade)
+  position       Int
+  question       String
+  options        String[]
+  correctIndices Int[]
+  imageURL       String?
+  imagePublicID  String?
+  createdAt      DateTime @default(now())
+
+  @@index([examID])
+}
+
+model Topic {
+  topicID   Int      @id @default(autoincrement())
+  courseID  Int
+  course    Course   @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  title     String
+  position  Int
+  modules   Module[]
+  createdAt DateTime @default(now())
+
+  @@index([courseID])
+}
+
+model Module {
+  moduleID  Int          @id @default(autoincrement())
+  topicID   Int
+  topic     Topic        @relation(fields: [topicID], references: [topicID], onDelete: Cascade)
+  title     String
+  position  Int
+  items     ModuleItem[]
+  createdAt DateTime     @default(now())
+
+  @@index([topicID])
+}
+
+model ModuleItem {
+  itemID     Int            @id @default(autoincrement())
+  moduleID   Int
+  module     Module         @relation(fields: [moduleID], references: [moduleID], onDelete: Cascade)
+  resourceID Int?
+  resource   Resource?      @relation(fields: [resourceID], references: [resourceID], onDelete: Cascade)
+  exam       Exam?
+  title      String?
+  position   Int
+  progress   ItemProgress[]
+  posts      CoursePost[]
+  createdAt  DateTime       @default(now())
+
+  @@index([moduleID])
+  @@index([resourceID])
+}
+
+model Enrollment {
+  enrollmentID Int      @id @default(autoincrement())
+  userID       Int
+  user         User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  courseID     Int
+  course       Course   @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  enrolledAt   DateTime @default(now())
+
+  @@unique([userID, courseID])
+  @@index([courseID])
+}
+
+// One row = this enrolled user completed/passed this course lesson item.
+// Exams only get a row when passed (>= 70%).
+model ItemProgress {
+  progressID  Int        @id @default(autoincrement())
+  userID      Int
+  user        User       @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  itemID      Int
+  item        ModuleItem @relation(fields: [itemID], references: [itemID], onDelete: Cascade)
+  completedAt DateTime   @default(now())
+
+  @@unique([userID, itemID])
+  @@index([itemID])
+}
+
+// One row = this user has answered this video knowledge check correctly.
+// Lets the player skip past already-passed checks and enforces skip-blocking
+// consistently across reloads instead of relying on client-only state.
+model CheckProgress {
+  progressID  Int        @id @default(autoincrement())
+  userID      Int
+  user        User       @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  checkID     Int
+  check       VideoCheck @relation(fields: [checkID], references: [checkID], onDelete: Cascade)
+  completedAt DateTime   @default(now())
+
+  @@unique([userID, checkID])
+  @@index([checkID])
+}
+
+// Image uploaded from the builder but not yet attached to a saved
+// question/check — tracked so it can always be deleted from Cloudinary.
+model PendingUpload {
+  uploadID     Int      @id @default(autoincrement())
+  ownerID      Int
+  owner        User     @relation("PendingUploads", fields: [ownerID], references: [userID], onDelete: Cascade)
+  url          String
+  publicID     String   @unique
+  resourceType String   @default("image") // Cloudinary resource_type, needed to destroy the asset
+  createdAt    DateTime @default(now())
+
+  @@index([ownerID])
+}
+
+// Optional end-of-course capstone project, defined by the teacher.
+// Submissions are reviewed by humans and graded against the criteria.
+model Capstone {
+  capstoneID   Int                  @id @default(autoincrement())
+  courseID     Int                  @unique
+  course       Course               @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  title        String
+  brief        String
+  deliverables String[]
+  criteria     String[] // the grading metric, one criterion per line
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  submissions  CapstoneSubmission[]
+  resources    CapstoneResource[]
+}
+
+// Teacher-uploaded reference files attached to the capstone assignment
+// itself (as opposed to CapstoneFile, which belongs to a student submission).
+model CapstoneResource {
+  resourceID   Int      @id @default(autoincrement())
+  capstoneID   Int
+  capstone     Capstone @relation(fields: [capstoneID], references: [capstoneID], onDelete: Cascade)
+  name         String
+  url          String
+  publicID     String
+  resourceType String
+  bytes        Int?
+  createdAt    DateTime @default(now())
+
+  @@index([capstoneID])
+}
+
+// Pass/fail verdict on a capstone submission, set by the course instructor.
+enum CapstoneStatus {
+  PENDING
+  PASSED
+  FAILED
+}
+
+model CapstoneSubmission {
+  submissionID Int            @id @default(autoincrement())
+  capstoneID   Int
+  capstone     Capstone       @relation(fields: [capstoneID], references: [capstoneID], onDelete: Cascade)
+  userID       Int
+  user         User           @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  submittedAt  DateTime       @default(now())
+  status       CapstoneStatus @default(PENDING)
+  gradedAt     DateTime?
+  feedback     String? // instructor feedback, required when grading
+  files        CapstoneFile[]
+
+  @@unique([capstoneID, userID])
+  @@index([userID])
+  @@index([capstoneID, status])
+}
+
+model CapstoneFile {
+  fileID       Int                @id @default(autoincrement())
+  submissionID Int
+  submission   CapstoneSubmission @relation(fields: [submissionID], references: [submissionID], onDelete: Cascade)
+  name         String
+  url          String
+  publicID     String
+  resourceType String
+  bytes        Int?
+
+  @@index([submissionID])
+}
+
+// ---------- per-course discussion board (reddit-style) ----------
+
+enum PostCategory {
+  ANNOUNCEMENT // teachers of the course only
+  QUESTION
+  ADVICE
+  GENERAL // site-wide discussion posts (courseID is null)
+  LECTURE // auto-created thread for a lecture's comment box (itemID set)
+}
+
+// courseID is null for site-wide "general discussion" posts, open to any user.
+// itemID flags a post to a specific lecture within the course — set only on
+// LECTURE-category threads, auto-created the first time someone comments
+// from that lecture's page (see commentOnLecture in discussion-actions.ts).
+model CoursePost {
+  postID    Int           @id @default(autoincrement())
+  courseID  Int?
+  course    Course?       @relation(fields: [courseID], references: [courseID], onDelete: Cascade)
+  itemID    Int?
+  item      ModuleItem?   @relation(fields: [itemID], references: [itemID], onDelete: SetNull)
+  authorID  Int
+  author    User          @relation(fields: [authorID], references: [userID], onDelete: Cascade)
+  category  PostCategory
+  title     String
+  body      String
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  comments  PostComment[]
+  votes     PostVote[]
+
+  @@unique([courseID, itemID])
+  @@index([courseID, category])
+  @@index([courseID, createdAt])
+}
+
+model PostComment {
+  commentID Int           @id @default(autoincrement())
+  postID    Int
+  post      CoursePost    @relation(fields: [postID], references: [postID], onDelete: Cascade)
+  authorID  Int
+  author    User          @relation(fields: [authorID], references: [userID], onDelete: Cascade)
+  body      String
+  createdAt DateTime      @default(now())
+  votes     CommentVote[]
+
+  @@index([postID])
+}
+
+// One vote per user per post; value is +1 or -1.
+model PostVote {
+  voteID Int        @id @default(autoincrement())
+  postID Int
+  post   CoursePost @relation(fields: [postID], references: [postID], onDelete: Cascade)
+  userID Int
+  user   User       @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  value  Int
+
+  @@unique([postID, userID])
+}
+
+// One vote per user per comment; value is +1 or -1.
+model CommentVote {
+  voteID    Int         @id @default(autoincrement())
+  commentID Int
+  comment   PostComment @relation(fields: [commentID], references: [commentID], onDelete: Cascade)
+  userID    Int
+  user      User        @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  value     Int
+
+  @@unique([commentID, userID])
+}
+
+model LessonProgress {
+  progressID  Int      @id @default(autoincrement())
+  userID      Int
+  user        User     @relation(fields: [userID], references: [userID], onDelete: Cascade)
+  lessonID    String
+  durationPct Int
+  watchedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userID, lessonID])
+  @@index([userID])
+}

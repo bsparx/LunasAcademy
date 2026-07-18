@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight, RotateCcw, Sparkles, Target } from "lucide-react";
 import { QuestionCard } from "./question-card";
-import type { MasteryCheck as MasteryCheckData } from "@/app/learn/_data/learning-content";
+import type { MasteryCheck as MasteryCheckData } from "@/app/(dashboard)/learn/_data/learning-content";
 
 type Props = {
   data: MasteryCheckData;

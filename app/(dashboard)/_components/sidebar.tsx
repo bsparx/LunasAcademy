@@ -6,18 +6,17 @@ import { usePathname } from "next/navigation";
 import {
   Home,
   BookOpen,
-  Compass,
-  Trophy,
   User,
   Settings,
   LogOut,
-  Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
   Flame,
   Medal,
   Users,
   PencilRuler,
+  GraduationCap,
+  MessagesSquare,
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -32,12 +31,12 @@ type NavItem = {
 const NAV: NavItem[] = [
   { href: "/dashboard", label: "Home", icon: Home },
   { href: "/learn", label: "Learn", icon: BookOpen },
+  { href: "/courses", label: "Courses", icon: GraduationCap },
   { href: "/review", label: "Review", icon: Flame },
   { href: "/community", label: "Community", icon: Users },
+  { href: "/discussion", label: "General Discussion", icon: MessagesSquare },
   { href: "/instructor", label: "Instructor", icon: PencilRuler },
-  { href: "/tracks", label: "Tracks", icon: Compass },
   { href: "/progress", label: "Progress", icon: Medal },
-  { href: "/achievements", label: "Achievements", icon: Trophy },
   { href: "/profile", label: "Profile", icon: User },
 ];
 
@@ -172,8 +171,11 @@ function readCollapsed(): boolean {
   }
 }
 
-export function Sidebar() {
+export function Sidebar({ isTeacher = false }: { isTeacher?: boolean }) {
   const pathname = usePathname();
+  const navItems = isTeacher
+    ? NAV
+    : NAV.filter((item) => item.href !== "/instructor");
   const [collapsed, setCollapsed] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
@@ -208,7 +210,7 @@ export function Sidebar() {
         {collapsed ? (
           <div className="flex w-full justify-center">
             <Link
-              href="/dashboard"
+              href="/"
               aria-label="Luna's Academy home"
               className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 transition-colors hover:bg-white/15"
             >
@@ -217,7 +219,7 @@ export function Sidebar() {
           </div>
         ) : (
           <div className="flex w-full items-center justify-between pr-1">
-            <Link href="/dashboard" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
                 <DeerLogo />
               </div>
@@ -263,7 +265,7 @@ export function Sidebar() {
       <nav
         className={cn(
           "mt-6 flex flex-col gap-1",
-          collapsed ? "px-2" : "px-3"
+          collapsed ? "items-center px-2" : "px-3"
         )}
       >
         {!collapsed && (
@@ -271,7 +273,7 @@ export function Sidebar() {
             Menu
           </div>
         )}
-        {NAV.map((item) => (
+        {navItems.map((item) => (
           <NavLink
             key={item.href}
             href={item.href}
@@ -287,49 +289,11 @@ export function Sidebar() {
         ))}
       </nav>
 
-      {/* LUNA ASSISTANT CARD */}
-      {!collapsed ? (
-        <div className="mx-3 mt-6 rounded-xl border border-white/10 bg-white/[0.06] p-4">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[var(--color-mint-400)]" />
-            <div className="text-[13px] font-semibold text-white">Ask Luna</div>
-          </div>
-          <p className="mt-1.5 text-[12px] leading-relaxed text-white/70">
-            Stuck on a lesson? I&apos;m one click away.
-          </p>
-          <button
-            type="button"
-            className="mt-3 w-full rounded-md bg-[var(--color-mint-500)] px-3 py-1.5 text-[12px] font-semibold text-[var(--color-forest-950)] hover:bg-[var(--color-mint-400)] transition-colors cursor-pointer"
-          >
-            Open chat
-          </button>
-        </div>
-      ) : (
-        <div className="mt-6 flex w-full justify-center px-2">
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <button
-                  type="button"
-                  aria-label="Ask Luna"
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/[0.06] text-[var(--color-mint-400)] hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                  <Sparkles className="h-[18px] w-[18px]" />
-                </button>
-              }
-            />
-            <TooltipContent side="right" sideOffset={12}>
-              Ask Luna
-            </TooltipContent>
-          </Tooltip>
-        </div>
-      )}
-
       {/* BOTTOM */}
       <div
         className={cn(
           "mt-auto flex flex-col gap-1 pt-4 border-t border-white/10",
-          collapsed ? "px-2" : "px-3"
+          collapsed ? "items-center px-2" : "px-3"
         )}
       >
         <BottomButton

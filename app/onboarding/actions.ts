@@ -8,6 +8,7 @@ export async function saveOnboarding(formData: FormData) {
   const user = await currentUser();
   if (!user) redirect("/sign-in");
 
+  const isTeacher = formData.get("role") === "teacher";
   const goal = (formData.get("goal") as string) || null;
   const startingTrack = (formData.get("startingTrack") as string) || null;
   const streakGoalRaw = formData.get("streakGoal") as string | null;
@@ -16,8 +17,9 @@ export async function saveOnboarding(formData: FormData) {
   await prisma.user.update({
     where: { clerkID: user.id },
     data: {
-      goal,
-      startingTrack,
+      role: isTeacher ? "TEACHER" : "STUDENT",
+      goal: isTeacher ? null : goal,
+      startingTrack: isTeacher ? null : startingTrack,
       streakGoal,
       onboardingDone: true,
     },

@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { ArrowLeft, Trophy, BarChart3, Sparkles, ArrowRight, Info } from "lucide-react";
-import { Sidebar } from "@/app/dashboard/_components/sidebar";
 import { cn } from "@/lib/utils";
-import type { LeaderboardRow } from "@/app/learn/_data/progress-content";
+import type { LeaderboardRow } from "@/app/(dashboard)/learn/_data/progress-content";
 
 type Props = {
   scope: string;
@@ -18,91 +17,86 @@ export function LeaderboardClient({ scope, rows, youRank }: Props) {
   const yourRow = rows.find((r) => r.isYou);
 
   return (
-    <div className="flex min-h-screen bg-[var(--cream-50)]">
-      <Sidebar />
-      <div className="flex-1 min-w-0">
-        <div className="mx-auto max-w-2xl px-10 py-10 space-y-8">
+    <div className="mx-auto max-w-2xl px-10 py-10 space-y-8">
+      <Link
+        href="/progress"
+        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)] transition-colors"
+      >
+        <ArrowLeft className="h-3.5 w-3.5" />
+        Progress
+      </Link>
+
+      {/* HEADER */}
+      <header>
+        <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
+          This week
+        </div>
+        <div className="mt-2 flex flex-wrap items-baseline gap-3">
+          <h1 className="text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
+            {scope}
+          </h1>
+        </div>
+        <p className="mt-2 text-[14px] text-[var(--color-ink-500)]">
+          Top learners by XP this week. Grouped by track so it never feels hopeless.
+        </p>
+      </header>
+
+      {/* LEADERBOARD CARD */}
+      <div className="rounded-2xl border border-[var(--color-ink-200)]/60 bg-white shadow-[0_2px_8px_rgba(15,40,30,0.04)] overflow-hidden">
+        <ul className="divide-y divide-[var(--color-ink-200)]/60">
+          {rows.map((row) => (
+            <Row
+              key={row.handle}
+              row={row}
+              maxXp={topXp}
+              yourXp={yourXp}
+            />
+          ))}
+        </ul>
+        <div className="flex items-start gap-2 border-t border-[var(--color-ink-200)]/60 bg-[var(--color-cream-50)] px-5 py-3 text-[12px] text-[var(--color-ink-500)]">
+          <Info className="h-3.5 w-3.5 mt-0.5 shrink-0 text-[var(--color-ink-400)]" />
+          <span>Opt-in &amp; anonymous-friendly. Grouped by track so it never feels hopeless.</span>
+        </div>
+      </div>
+
+      {/* YOU-RANK SUMMARY */}
+      {yourRow && youRank && (
+        <div className="rounded-2xl border border-[var(--color-mint-500)]/30 bg-[var(--color-tint-green)]/30 p-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-mint-500)] text-white">
+              <BarChart3 className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="text-[13px] font-semibold text-[var(--color-ink-900)]">
+                You&apos;re #{youRank} of {rows.length} in {scope.split(" · ")[0]}.
+              </div>
+              <div className="text-[12px] text-[var(--color-ink-500)]">
+                {topXp - yourXp} XP behind the leader. One more lesson might tip the week.
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* UPSELL TO LEARN */}
+      <div className="rounded-2xl border border-[var(--color-ink-200)]/60 bg-white p-5 shadow-[0_2px_8px_rgba(15,40,30,0.04)]">
+        <div className="flex items-center gap-3">
+          <Sparkles className="h-5 w-5 text-[var(--color-mint-600)]" />
+          <div className="flex-1">
+            <div className="text-[14px] font-semibold text-[var(--color-ink-900)]">
+              Climb the board by reviewing.
+            </div>
+            <div className="text-[12px] text-[var(--color-ink-500)]">
+              Spaced-repetition reviews earn XP and lock in the streak.
+            </div>
+          </div>
           <Link
-            href="/progress"
-            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)] transition-colors"
+            href="/review"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-forest-900)] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-forest-800)] transition-colors"
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Progress
+            Open review
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-
-          {/* HEADER */}
-          <header>
-            <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
-              This week
-            </div>
-            <div className="mt-2 flex flex-wrap items-baseline gap-3">
-              <h1 className="text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
-                {scope}
-              </h1>
-            </div>
-            <p className="mt-2 text-[14px] text-[var(--color-ink-500)]">
-              Top learners by XP this week. Grouped by track so it never feels hopeless.
-            </p>
-          </header>
-
-          {/* LEADERBOARD CARD */}
-          <div className="rounded-2xl border border-[var(--color-ink-200)]/60 bg-white shadow-[0_2px_8px_rgba(15,40,30,0.04)] overflow-hidden">
-            <ul className="divide-y divide-[var(--color-ink-200)]/60">
-              {rows.map((row) => (
-                <Row
-                  key={row.handle}
-                  row={row}
-                  maxXp={topXp}
-                  yourXp={yourXp}
-                />
-              ))}
-            </ul>
-            <div className="flex items-start gap-2 border-t border-[var(--color-ink-200)]/60 bg-[var(--color-cream-50)] px-5 py-3 text-[12px] text-[var(--color-ink-500)]">
-              <Info className="h-3.5 w-3.5 mt-0.5 shrink-0 text-[var(--color-ink-400)]" />
-              <span>Opt-in &amp; anonymous-friendly. Grouped by track so it never feels hopeless.</span>
-            </div>
-          </div>
-
-          {/* YOU-RANK SUMMARY */}
-          {yourRow && youRank && (
-            <div className="rounded-2xl border border-[var(--color-mint-500)]/30 bg-[var(--color-tint-green)]/30 p-5">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-mint-500)] text-white">
-                  <BarChart3 className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[13px] font-semibold text-[var(--color-ink-900)]">
-                    You&apos;re #{youRank} of {rows.length} in {scope.split(" · ")[0]}.
-                  </div>
-                  <div className="text-[12px] text-[var(--color-ink-500)]">
-                    {topXp - yourXp} XP behind the leader. One more lesson might tip the week.
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* UPSELL TO LEARN */}
-          <div className="rounded-2xl border border-[var(--color-ink-200)]/60 bg-white p-5 shadow-[0_2px_8px_rgba(15,40,30,0.04)]">
-            <div className="flex items-center gap-3">
-              <Sparkles className="h-5 w-5 text-[var(--color-mint-600)]" />
-              <div className="flex-1">
-                <div className="text-[14px] font-semibold text-[var(--color-ink-900)]">
-                  Climb the board by reviewing.
-                </div>
-                <div className="text-[12px] text-[var(--color-ink-500)]">
-                  Spaced-repetition reviews earn XP and lock in the streak.
-                </div>
-              </div>
-              <Link
-                href="/review"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-forest-900)] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-forest-800)] transition-colors"
-              >
-                Open review
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </div>

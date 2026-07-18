@@ -3,14 +3,13 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Check, Clock, MessageSquare, Plus, ArrowUp, Trophy } from "lucide-react";
-import { Sidebar } from "@/app/dashboard/_components/sidebar";
 import { cn } from "@/lib/utils";
 import {
   type ForumForCourse,
   type ForumThread,
   type ThreadType,
   type PerCourseCommunity,
-} from "@/app/learn/_data/community-content";
+} from "@/app/(dashboard)/learn/_data/community-content";
 
 type Props = {
   data: ForumForCourse;
@@ -43,95 +42,90 @@ export function ForumClient({ data, community }: Props) {
   }, [data.threads, tab]);
 
   return (
-    <div className="flex min-h-screen bg-[var(--cream-50)]">
-      <Sidebar />
-      <div className="flex-1 min-w-0">
-        <div className="mx-auto max-w-3xl px-10 py-10 space-y-8">
-          <Link
-            href={`/community/${data.courseId}`}
-            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)] transition-colors"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            {data.courseTitle.split(" — ")[0]} community
-          </Link>
+    <div className="mx-auto max-w-3xl px-10 py-10 space-y-8">
+      <Link
+        href={`/community/${data.courseId}`}
+        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)] transition-colors"
+      >
+        <ArrowLeft className="h-3.5 w-3.5" />
+        {data.courseTitle.split(" — ")[0]} community
+      </Link>
 
-          {/* HEADER */}
-          <header className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
-                Discussion &amp; Q&amp;A
-              </div>
-              <h1 className="mt-2 text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
-                Discussion Forum
-              </h1>
-              <p className="mt-2 text-[13px] text-[var(--color-ink-500)]">
-                {data.courseTitle}
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              {community && <RepPill community={community} />}
-              <button
-                type="button"
-                className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-forest-900)] px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-forest-800)] transition-colors cursor-pointer"
-              >
-                <Plus className="h-3.5 w-3.5" />
-                New post
-              </button>
-            </div>
-          </header>
-
-          {/* TABS */}
-          <div className="flex items-center gap-1 border-b border-[var(--color-ink-200)]/60">
-            {TABS.map((t) => {
-              const count =
-                t.id === "all"
-                  ? data.threads.length
-                  : data.threads.filter((th) => th.type === t.id).length;
-              return (
-                <button
-                  key={t.id}
-                  type="button"
-                  onClick={() => setTab(t.id)}
-                  className={cn(
-                    "relative px-3 py-2.5 text-[13px] font-medium transition-colors cursor-pointer",
-                    tab === t.id
-                      ? "text-[var(--color-forest-900)]"
-                      : "text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)]"
-                  )}
-                >
-                  {t.label}
-                  <span
-                    className={cn(
-                      "ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[10px] font-semibold tabular-nums",
-                      tab === t.id
-                        ? "bg-[var(--color-mint-500)]/15 text-[var(--color-mint-600)]"
-                        : "bg-[var(--color-ink-100)] text-[var(--color-ink-500)]"
-                    )}
-                  >
-                    {count}
-                  </span>
-                  {tab === t.id && (
-                    <span className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-[var(--color-mint-500)]" />
-                  )}
-                </button>
-              );
-            })}
+      {/* HEADER */}
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
+            Discussion &amp; Q&amp;A
           </div>
-
-          {/* THREADS */}
-          {filtered.length === 0 ? (
-            <EmptyState tab={tab} />
-          ) : (
-            <ul className="space-y-3">
-              {filtered.map((thread) => (
-                <li key={thread.id}>
-                  <ThreadCard thread={thread} />
-                </li>
-              ))}
-            </ul>
-          )}
+          <h1 className="mt-2 text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
+            Discussion Forum
+          </h1>
+          <p className="mt-2 text-[13px] text-[var(--color-ink-500)]">
+            {data.courseTitle}
+          </p>
         </div>
+        <div className="flex items-center gap-2">
+          {community && <RepPill community={community} />}
+          <button
+            type="button"
+            className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-forest-900)] px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-forest-800)] transition-colors cursor-pointer"
+          >
+            <Plus className="h-3.5 w-3.5" />
+            New post
+          </button>
+        </div>
+      </header>
+
+      {/* TABS */}
+      <div className="flex items-center gap-1 border-b border-[var(--color-ink-200)]/60">
+        {TABS.map((t) => {
+          const count =
+            t.id === "all"
+              ? data.threads.length
+              : data.threads.filter((th) => th.type === t.id).length;
+          return (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTab(t.id)}
+              className={cn(
+                "relative px-3 py-2.5 text-[13px] font-medium transition-colors cursor-pointer",
+                tab === t.id
+                  ? "text-[var(--color-forest-900)]"
+                  : "text-[var(--color-ink-500)] hover:text-[var(--color-ink-900)]"
+              )}
+            >
+              {t.label}
+              <span
+                className={cn(
+                  "ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[10px] font-semibold tabular-nums",
+                  tab === t.id
+                    ? "bg-[var(--color-mint-500)]/15 text-[var(--color-mint-600)]"
+                    : "bg-[var(--color-ink-100)] text-[var(--color-ink-500)]"
+                )}
+              >
+                {count}
+              </span>
+              {tab === t.id && (
+                <span className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-[var(--color-mint-500)]" />
+              )}
+            </button>
+          );
+        })}
       </div>
+
+      {/* THREADS */}
+      {filtered.length === 0 ? (
+        <EmptyState tab={tab} />
+      ) : (
+        <ul className="space-y-3">
+          {filtered.map((thread) => (
+            <li key={thread.id}>
+              <ThreadCard thread={thread} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

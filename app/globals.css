@@ -133,6 +133,26 @@ body {
   }
 }
 
+/* Indeterminate progress bar (e.g. builder "Creating exam…") */
+.progress-indeterminate {
+  width: 100%;
+  animation: pulse-soft 1.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes progress-slide {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(300%);
+    }
+  }
+  .progress-indeterminate {
+    width: 33.333%;
+    animation: progress-slide 1.2s ease-in-out infinite;
+  }
+}
+
 /* Landing-page animations — transform/opacity only */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes float {

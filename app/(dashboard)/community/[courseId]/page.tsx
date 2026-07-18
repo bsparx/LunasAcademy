@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
-import { getCourseCommunity } from "@/app/learn/_data/community-content";
+import { getCourseCommunity } from "@/app/(dashboard)/learn/_data/community-content";
 import { CommunityCourseClient } from "./_components/community-course";
 
 export function generateStaticParams() {

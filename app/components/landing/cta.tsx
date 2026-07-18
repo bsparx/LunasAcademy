@@ -1,4 +1,5 @@
-import { SignUpButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { Show, SignUpButton } from "@clerk/nextjs";
 import { ArrowRight } from "lucide-react";
 import { Mascot } from "../mascot";
 import { ScrollReveal } from "./scroll-reveal";
@@ -47,15 +48,26 @@ export function FinalCta() {
             credit card.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <SignUpButton mode="modal">
-              <button
-                type="button"
-                className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-6 py-3.5 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+            <Show when="signed-out">
+              <SignUpButton mode="modal">
+                <button
+                  type="button"
+                  className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-6 py-3.5 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                >
+                  Create free account
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </button>
+              </SignUpButton>
+            </Show>
+            <Show when="signed-in">
+              <Link
+                href="/dashboard"
+                className="group inline-flex items-center gap-2 rounded-md bg-[var(--color-mint-500)] px-6 py-3.5 text-[15px] font-medium text-white shadow-lg shadow-[var(--color-mint-500)]/25 hover:bg-[var(--color-mint-600)] hover:shadow-xl hover:shadow-[var(--color-mint-500)]/35 hover:-translate-y-0.5 transition-all duration-200"
               >
-                Create free account
+                Go to dashboard
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </SignUpButton>
+              </Link>
+            </Show>
             <a
               href="#how"
               className="inline-flex items-center gap-1.5 text-[14px] font-medium text-white/80 hover:text-white px-4 py-3 transition-colors"

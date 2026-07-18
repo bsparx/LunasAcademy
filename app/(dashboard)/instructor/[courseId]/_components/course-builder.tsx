@@ -43,7 +43,6 @@ import {
   arrayMove,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Sidebar } from "@/app/dashboard/_components/sidebar";
 import { cn } from "@/lib/utils";
 import {
   BLOCK_LIBRARY,
@@ -51,7 +50,7 @@ import {
   type Block,
   type BlockType,
   type InstructorCourse,
-} from "@/app/learn/_data/instructor-content";
+} from "@/app/(dashboard)/learn/_data/instructor-content";
 
 type Props = {
   course: InstructorCourse;
@@ -197,144 +196,141 @@ export function CourseBuilderClient({ course }: Props) {
       onDragEnd={handleDragEnd}
       onDragCancel={() => setActiveId(null)}
     >
-      <div className="flex min-h-screen bg-[var(--cream-50)]">
-        <Sidebar />
-        <div className="flex-1 min-w-0">
-          {/* TOP BAR */}
-          <div className="sticky top-0 z-30 border-b border-[var(--color-ink-200)]/60 bg-[var(--cream-50)]/85 backdrop-blur-md">
-            <div className="mx-auto max-w-7xl px-10 h-16 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3 min-w-0">
-                <Link
-                  href="/instructor"
-                  className="flex h-8 w-8 items-center justify-center rounded-md text-[var(--color-ink-500)] hover:bg-[var(--color-cream-100)] hover:text-[var(--color-ink-900)] transition-colors"
-                  aria-label="Back to instructor"
+      <>
+        {/* TOP BAR */}
+        <div className="sticky top-0 z-30 border-b border-[var(--color-ink-200)]/60 bg-[var(--cream-50)]/85 backdrop-blur-md">
+          <div className="mx-auto max-w-7xl px-10 h-16 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <Link
+                href="/instructor"
+                className="flex h-8 w-8 items-center justify-center rounded-md text-[var(--color-ink-500)] hover:bg-[var(--color-cream-100)] hover:text-[var(--color-ink-900)] transition-colors"
+                aria-label="Back to instructor"
+              >
+                <ArrowLeft className="h-4 w-4" />
+              </Link>
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-[12px] text-[var(--color-ink-500)]">Courses</span>
+                <ChevronRight className="h-3.5 w-3.5 text-[var(--color-ink-300)]" />
+                <span className="truncate text-[15px] font-semibold text-[var(--color-ink-900)]">
+                  {course.title}
+                </span>
+                <span
+                  className={cn(
+                    "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                    course.status === "draft"
+                      ? "bg-[var(--color-tint-tan)] text-[#8a5f25]"
+                      : "bg-[var(--color-tint-green)] text-[var(--color-mint-600)]"
+                  )}
                 >
-                  <ArrowLeft className="h-4 w-4" />
-                </Link>
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="text-[12px] text-[var(--color-ink-500)]">Courses</span>
-                  <ChevronRight className="h-3.5 w-3.5 text-[var(--color-ink-300)]" />
-                  <span className="truncate text-[15px] font-semibold text-[var(--color-ink-900)]">
-                    {course.title}
-                  </span>
-                  <span
-                    className={cn(
-                      "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
-                      course.status === "draft"
-                        ? "bg-[var(--color-tint-tan)] text-[#8a5f25]"
-                        : "bg-[var(--color-tint-green)] text-[var(--color-mint-600)]"
-                    )}
-                  >
-                    {course.status}
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Link
-                  href={`/instructor/${course.id}/analytics`}
-                  className="hidden sm:inline-flex items-center gap-1.5 rounded-md border border-[var(--color-ink-200)] bg-white px-3.5 py-2 text-[13px] font-semibold text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)] transition-colors"
-                >
-                  <BarChart3 className="h-4 w-4" />
-                  Analytics
-                </Link>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1.5 rounded-md border border-[var(--color-ink-200)] bg-white px-4 py-2 text-[13px] font-semibold text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)] transition-colors cursor-pointer"
-                >
-                  <Eye className="h-4 w-4" />
-                  Preview
-                </button>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-mint-500)] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-mint-400)] transition-colors cursor-pointer"
-                >
-                  <span className="h-2 w-2 rounded-full bg-white" />
-                  Publish
-                </button>
+                  {course.status}
+                </span>
               </div>
             </div>
-          </div>
-
-          {/* THREE COLUMNS */}
-          <div className="mx-auto max-w-7xl px-10 py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)_380px] gap-10 items-start">
-              {/* LEFT — BLOCK PALETTE */}
-              <aside className="lg:sticky lg:top-20">
-                <SectionLabel>Drag in blocks</SectionLabel>
-                <div className="mt-3 space-y-1.5">
-                  {BLOCK_LIBRARY.map((b) => (
-                    <PaletteItemButton
-                      key={b.type}
-                      type={b.type}
-                      label={b.label}
-                      description={b.description}
-                      isHovered={hoverPalette === b.type}
-                      onHoverChange={setHoverPalette}
-                      onClick={() => addBlockToLastModule(b.type)}
-                    />
-                  ))}
-                </div>
-                <p className="mt-3 text-[11px] leading-relaxed text-[var(--color-ink-400)]">
-                  Drag a block into a module, or click to append to the last
-                  module. Drag handles show where you can move things.
-                </p>
-              </aside>
-
-              {/* MIDDLE — CANVAS */}
-              <main>
-                <SectionLabel>Canvas</SectionLabel>
-                <div className="mt-3 space-y-5">
-                  {modules.length === 0 ? (
-                    <EmptyCanvas onAddModule={addModule} />
-                  ) : (
-                    <SortableContext
-                      items={modules.map((m) => m.id)}
-                      strategy={verticalListSortingStrategy}
-                    >
-                      {modules.map((module) => (
-                        <SortableModuleCard
-                          key={module.id}
-                          title={module.title}
-                          moduleId={module.id}
-                          blocks={module.blocks}
-                          collapsed={!!collapsed[module.id]}
-                          onToggle={() => toggleCollapse(module.id)}
-                          selectedBlockId={selectedBlockId}
-                          onSelectBlock={setSelectedBlockId}
-                        />
-                      ))}
-                    </SortableContext>
-                  )}
-
-                  {/* Add module button */}
-                  <button
-                    type="button"
-                    onClick={addModule}
-                    className="group flex w-full items-center justify-center gap-2 rounded-xl border-2 border-dashed border-[var(--color-ink-200)] bg-white/60 px-6 py-6 text-[14px] font-semibold text-[var(--color-ink-500)] transition-colors hover:border-[var(--color-mint-500)]/50 hover:bg-[var(--color-tint-green)]/30 hover:text-[var(--color-mint-600)] cursor-pointer"
-                  >
-                    <Plus className="h-5 w-5" />
-                    Add module
-                  </button>
-                </div>
-              </main>
-
-              {/* RIGHT — SETTINGS */}
-              <aside className="lg:sticky lg:top-20">
-                <SectionLabel>Block settings</SectionLabel>
-                {selected ? (
-                  <SettingsPanel
-                    key={selected.id}
-                    block={selected}
-                    moduleTitle={selectedModule?.title ?? "Module"}
-                  />
-                ) : (
-                  <EmptySettings />
-                )}
-              </aside>
+            <div className="flex items-center gap-2">
+              <Link
+                href={`/instructor/${course.id}/analytics`}
+                className="hidden sm:inline-flex items-center gap-1.5 rounded-md border border-[var(--color-ink-200)] bg-white px-3.5 py-2 text-[13px] font-semibold text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)] transition-colors"
+              >
+                <BarChart3 className="h-4 w-4" />
+                Analytics
+              </Link>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1.5 rounded-md border border-[var(--color-ink-200)] bg-white px-4 py-2 text-[13px] font-semibold text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)] transition-colors cursor-pointer"
+              >
+                <Eye className="h-4 w-4" />
+                Preview
+              </button>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1.5 rounded-md bg-[var(--color-mint-500)] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[var(--color-mint-400)] transition-colors cursor-pointer"
+              >
+                <span className="h-2 w-2 rounded-full bg-white" />
+                Publish
+              </button>
             </div>
           </div>
         </div>
-      </div>
+
+        {/* THREE COLUMNS */}
+        <div className="mx-auto max-w-7xl px-10 py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)_380px] gap-10 items-start">
+            {/* LEFT — BLOCK PALETTE */}
+            <aside className="lg:sticky lg:top-20">
+              <SectionLabel>Drag in blocks</SectionLabel>
+              <div className="mt-3 space-y-1.5">
+                {BLOCK_LIBRARY.map((b) => (
+                  <PaletteItemButton
+                    key={b.type}
+                    type={b.type}
+                    label={b.label}
+                    description={b.description}
+                    isHovered={hoverPalette === b.type}
+                    onHoverChange={setHoverPalette}
+                    onClick={() => addBlockToLastModule(b.type)}
+                  />
+                ))}
+              </div>
+              <p className="mt-3 text-[11px] leading-relaxed text-[var(--color-ink-400)]">
+                Drag a block into a module, or click to append to the last
+                module. Drag handles show where you can move things.
+              </p>
+            </aside>
+
+            {/* MIDDLE — CANVAS */}
+            <main>
+              <SectionLabel>Canvas</SectionLabel>
+              <div className="mt-3 space-y-5">
+                {modules.length === 0 ? (
+                  <EmptyCanvas onAddModule={addModule} />
+                ) : (
+                  <SortableContext
+                    items={modules.map((m) => m.id)}
+                    strategy={verticalListSortingStrategy}
+                  >
+                    {modules.map((module) => (
+                      <SortableModuleCard
+                        key={module.id}
+                        title={module.title}
+                        moduleId={module.id}
+                        blocks={module.blocks}
+                        collapsed={!!collapsed[module.id]}
+                        onToggle={() => toggleCollapse(module.id)}
+                        selectedBlockId={selectedBlockId}
+                        onSelectBlock={setSelectedBlockId}
+                      />
+                    ))}
+                  </SortableContext>
+                )}
+
+                {/* Add module button */}
+                <button
+                  type="button"
+                  onClick={addModule}
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl border-2 border-dashed border-[var(--color-ink-200)] bg-white/60 px-6 py-6 text-[14px] font-semibold text-[var(--color-ink-500)] transition-colors hover:border-[var(--color-mint-500)]/50 hover:bg-[var(--color-tint-green)]/30 hover:text-[var(--color-mint-600)] cursor-pointer"
+                >
+                  <Plus className="h-5 w-5" />
+                  Add module
+                </button>
+              </div>
+            </main>
+
+            {/* RIGHT — SETTINGS */}
+            <aside className="lg:sticky lg:top-20">
+              <SectionLabel>Block settings</SectionLabel>
+              {selected ? (
+                <SettingsPanel
+                  key={selected.id}
+                  block={selected}
+                  moduleTitle={selectedModule?.title ?? "Module"}
+                />
+              ) : (
+                <EmptySettings />
+              )}
+            </aside>
+          </div>
+        </div>
+      </>
 
       {/* DRAG OVERLAY — the floating preview of what's being dragged */}
       <DragOverlay dropAnimation={null}>

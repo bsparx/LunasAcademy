@@ -14,14 +14,13 @@ import {
   ExternalLink,
   Users,
 } from "lucide-react";
-import { Sidebar } from "@/app/dashboard/_components/sidebar";
 import { cn } from "@/lib/utils";
 import {
   type Resource,
   type ResourceType,
   type ResourcesForCourse,
   groupResourcesByModule,
-} from "@/app/learn/_data/community-content";
+} from "@/app/(dashboard)/learn/_data/community-content";
 
 type Props = {
   data: ResourcesForCourse;
@@ -60,99 +59,94 @@ export function ResourcesClient({ data }: Props) {
   const grouped = useMemo(() => groupResourcesByModule(filtered), [filtered]);
 
   return (
-    <div className="flex min-h-screen bg-[var(--cream-50)]">
-      <Sidebar />
-      <div className="flex-1 min-w-0">
-        <div className="mx-auto max-w-5xl px-10 py-10 space-y-8">
-          {/* HEADER */}
-          <header className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
-                Resources library
-              </div>
-              <h1 className="mt-2 text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
-                Resources · {data.courseTitle}
-              </h1>
-            </div>
-            <div className="relative w-full sm:w-72">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-ink-400)]" />
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search files…"
-                className="w-full rounded-lg border border-[var(--color-ink-200)] bg-white py-2 pl-9 pr-3 text-[13px] text-[var(--color-ink-900)] placeholder:text-[var(--color-ink-400)] focus:border-[var(--color-forest-900)] focus:outline-none focus:ring-3 focus:ring-[var(--color-forest-900)]/10"
-              />
-            </div>
-          </header>
-
-          {/* TIER LEGEND */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[var(--color-ink-200)]/40 bg-white px-5 py-3.5">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-ink-500)]">
-              Tier
-            </span>
-            {TIER_ORDER.map((tier) => (
-              <div key={tier} className="inline-flex items-center gap-1.5">
-                <span
-                  className={cn(
-                    "h-2.5 w-2.5 rounded-full",
-                    tierDot(tier)
-                  )}
-                  aria-hidden
-                />
-                <span className="text-[12px] font-medium text-[var(--color-ink-700)]">{tier}</span>
-              </div>
-            ))}
+    <div className="mx-auto max-w-5xl px-10 py-10 space-y-8">
+      {/* HEADER */}
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-mint-600)] uppercase">
+            Resources library
           </div>
-
-          {/* TYPE FILTERS */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            {TYPE_FILTERS.map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => setFilter(f.id)}
-                className={cn(
-                  "rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors cursor-pointer",
-                  filter === f.id
-                    ? "bg-[var(--color-forest-900)] text-white"
-                    : "border border-[var(--color-ink-200)] bg-white text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)]"
-                )}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          {/* GROUPED RESOURCES */}
-          {grouped.length === 0 ? (
-            <EmptyState query={query} />
-          ) : (
-            <div className="space-y-8">
-              {grouped.map((group) => (
-                <section key={group.moduleId}>
-                  <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-ink-500)] uppercase">
-                    {group.moduleTitle}
-                  </div>
-                  <ul className="mt-3 space-y-2">
-                    {group.items.map((r) => (
-                      <ResourceRow key={r.id} resource={r} />
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          )}
-
-          {/* FOOTER NOTE */}
-          <div className="rounded-xl border border-dashed border-[var(--color-ink-200)] bg-[var(--color-cream-50)]/40 px-5 py-4 text-[13px] leading-relaxed text-[var(--color-ink-500)]">
-            Resources live in two places: a{" "}
-            <span className="font-semibold text-[var(--color-ink-900)]">per-lesson</span> tab{" "}
-            (right where you need it) and this{" "}
-            <span className="font-semibold text-[var(--color-ink-900)]">course-wide</span> library
-            for everything at once.
-          </div>
+          <h1 className="mt-2 text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-ink-900)]">
+            Resources · {data.courseTitle}
+          </h1>
         </div>
+        <div className="relative w-full sm:w-72">
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-ink-400)]" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search files…"
+            className="w-full rounded-lg border border-[var(--color-ink-200)] bg-white py-2 pl-9 pr-3 text-[13px] text-[var(--color-ink-900)] placeholder:text-[var(--color-ink-400)] focus:border-[var(--color-forest-900)] focus:outline-none focus:ring-3 focus:ring-[var(--color-forest-900)]/10"
+          />
+        </div>
+      </header>
+
+      {/* TIER LEGEND */}
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-[var(--color-ink-200)]/40 bg-white px-5 py-3.5">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--color-ink-500)]">
+          Tier
+        </span>
+        {TIER_ORDER.map((tier) => (
+          <div key={tier} className="inline-flex items-center gap-1.5">
+            <span
+              className={cn(
+                "h-2.5 w-2.5 rounded-full",
+                tierDot(tier)
+              )}
+              aria-hidden
+            />
+            <span className="text-[12px] font-medium text-[var(--color-ink-700)]">{tier}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* TYPE FILTERS */}
+      <div className="flex flex-wrap items-center gap-1.5">
+        {TYPE_FILTERS.map((f) => (
+          <button
+            key={f.id}
+            type="button"
+            onClick={() => setFilter(f.id)}
+            className={cn(
+              "rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors cursor-pointer",
+              filter === f.id
+                ? "bg-[var(--color-forest-900)] text-white"
+                : "border border-[var(--color-ink-200)] bg-white text-[var(--color-ink-700)] hover:bg-[var(--color-cream-50)]"
+            )}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* GROUPED RESOURCES */}
+      {grouped.length === 0 ? (
+        <EmptyState query={query} />
+      ) : (
+        <div className="space-y-8">
+          {grouped.map((group) => (
+            <section key={group.moduleId}>
+              <div className="text-[11px] font-semibold tracking-[0.22em] text-[var(--color-ink-500)] uppercase">
+                {group.moduleTitle}
+              </div>
+              <ul className="mt-3 space-y-2">
+                {group.items.map((r) => (
+                  <ResourceRow key={r.id} resource={r} />
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      )}
+
+      {/* FOOTER NOTE */}
+      <div className="rounded-xl border border-dashed border-[var(--color-ink-200)] bg-[var(--color-cream-50)]/40 px-5 py-4 text-[13px] leading-relaxed text-[var(--color-ink-500)]">
+        Resources live in two places: a{" "}
+        <span className="font-semibold text-[var(--color-ink-900)]">per-lesson</span> tab{" "}
+        (right where you need it) and this{" "}
+        <span className="font-semibold text-[var(--color-ink-900)]">course-wide</span> library
+        for everything at once.
       </div>
     </div>
   );

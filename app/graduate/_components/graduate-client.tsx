@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, X } from "lucide-react";
 import { Mascot } from "@/app/components/mascot";
-import type { Graduate } from "@/app/learn/_data/progress-content";
+import type { Graduate } from "@/app/(dashboard)/learn/_data/progress-content";
 
 type Props = {
   graduate: Graduate;
